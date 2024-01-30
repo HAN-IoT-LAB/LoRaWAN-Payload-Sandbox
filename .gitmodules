@@ -1,0 +1,3 @@
+[submodule "PIO_Sandbox/include/CayenneLPP_Optimized"]
+	path = PIO_Sandbox/include/CayenneLPP_Optimized
+	url = https://github.com/HAN-IoT-LAB/CayenneLPP_Optimized.git
