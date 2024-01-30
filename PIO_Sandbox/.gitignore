@@ -4,3 +4,4 @@
 .vscode/launch.json
 .vscode/ipch
 PIO_Sandbox/include/CayenneLPP_Optimized/*
+.vscode/extensions.json
