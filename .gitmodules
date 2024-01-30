@@ -1,0 +1,3 @@
+[submodule "includes/CayenneLPP"]
+	path = includes/CayenneLPP
+	url = git@github.com:HAN-IoT-LAB/CayenneLPP_Optimized.git
