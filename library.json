@@ -1,0 +1,34 @@
+{
+  "name": "CayenneLPP Extreme",
+  "version": "1.0.0",
+  "description": "Refactored for footprint optimization CayenneLPP library for HAN IoT-LAB LoRaWAN class.",
+  "keywords": "header-only, CayenneLPP, HAN, madebyese, embedded systems engineering",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HAN-IoT-LAB/LoRaWAN-Payload-Sandbox.git"
+  },
+  "authors": [
+    {
+      "name": "Klaasjan Wagenaar"
+    },
+    {
+      "name": "Tristan Bosveld"
+    },
+    {
+      "name": "Richard Kroesen",
+      "email": "kroesen.ri@gmail.com",
+      "maintainer": true
+    }
+  ],
+  "export": {
+    "exclude": [
+      "src/*",
+      "test/*",
+      "lib/*"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "frameworks": "arduino",
+  "platforms": "atmelavr"
+}

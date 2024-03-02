@@ -1,3 +1,25 @@
+/* MIT License
+ * Copyright (c) 2024 Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 #ifndef CAYENNE_LPP_HPP
 #define CAYENNE_LPP_HPP
 
@@ -35,15 +57,15 @@ namespace PAYLOAD_ENCODER
             return currentIndex; // Returns the count of used bytes
         }
 
-        /* @Brief Return buffer by returning the array pointer. 
+        /* @Brief Return buffer by returning the array pointer.
           Const return, to prevent caller of modifications (read-only).
         */
-        const uint8_t* getBuffer(void)
+        const uint8_t *getBuffer(void)
         {
             return buffer;
         }
 
-        uint8_t copy(uint8_t* destBuffer) const
+        uint8_t copy(uint8_t *destBuffer) const
         {
             if (!destBuffer)
             {
@@ -137,7 +159,7 @@ namespace PAYLOAD_ENCODER
         }
 
     private:
-        uint8_t* buffer;
+        uint8_t *buffer;
         size_t operationalSize;
         static inline size_t currentIndex;
     }; // End of class CayenneLPP.

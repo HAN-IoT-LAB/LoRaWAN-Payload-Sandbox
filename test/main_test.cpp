@@ -20,16 +20,30 @@
  * SOFTWARE.
  */
 
-/* This Main is meant for quick compilation verification, and will be removed for the final library deployment.*/
-#include <Arduino.h>
+#include <unity.h>
 #include "../include/CayenneLPP.hpp"
 
-PAYLOAD_ENCODER::CayenneLPP<100> payloadBuf(50);
-
-void setup() {
-  payloadBuf.addDigitalInput(1,5);
+void setUp(void)
+{
+    /* Initialize stuff before each test */
 }
 
-void loop() {
-    
+void tearDown(void)
+{
+    /* Clean up after each test */
+}
+
+void test_addition()
+{
+    PAYLOAD_ENCODER::CayenneLPP<50> driver(5);
+
+    TEST_ASSERT_EQUAL(10, 10);
+}
+
+int main(int argc, char **argv)
+{
+    UNITY_BEGIN();
+    RUN_TEST(test_addition);
+    UNITY_END();
+    return 0;
 }
