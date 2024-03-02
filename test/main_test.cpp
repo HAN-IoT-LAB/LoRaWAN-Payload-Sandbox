@@ -33,17 +33,31 @@ void tearDown(void)
     /* Clean up after each test */
 }
 
-void test_addition()
-{
-    PAYLOAD_ENCODER::CayenneLPP<50> driver(5);
+void test_CayenneLPP_Initialization(void) {
+    PAYLOAD_ENCODER::CayenneLPP<128> lpp(10);
+    TEST_ASSERT_NOT_NULL(lpp.getBuffer());
+    TEST_ASSERT_EQUAL_UINT8(0, lpp.getSize());
+}
 
-    TEST_ASSERT_EQUAL(10, 10);
+void test_CayenneLPP_Reset(void) {
+    PAYLOAD_ENCODER::CayenneLPP<128> lpp(10);
+    lpp.addAnalogInput(1, {0.1f});
+    lpp.reset();
+    TEST_ASSERT_EQUAL_UINT8(0, lpp.getSize());
+}
+
+void test_CayenneLPP_Digital(void) {
+    PAYLOAD_ENCODER::CayenneLPP<128> lpp(10);
+    lpp.addDigitalInput(5, 0xDD);
+    TEST_ASSERT_EQUAL_UINT8(3, lpp.getSize());
 }
 
 int main(int argc, char **argv)
 {
     UNITY_BEGIN();
-    RUN_TEST(test_addition);
+    RUN_TEST(test_CayenneLPP_Initialization);
+    RUN_TEST(test_CayenneLPP_Reset);
+    RUN_TEST(test_CayenneLPP_Digital);
     UNITY_END();
     return 0;
 }
