@@ -22,7 +22,6 @@
   ],
   "export": {
     "exclude": [
-      "src/*",
       "test/*",
       "lib/*"
     ]

@@ -26,9 +26,8 @@
 #include <stdint.h>
 #include "CayenneReferences.hpp"
 
-#define BUFFER_MAX 0xFF
+#define PAYLOAD_BUFFER_MAX 0xFF
 
-/* */
 namespace PAYLOAD_ENCODER
 {
     template <size_t MaxSize>

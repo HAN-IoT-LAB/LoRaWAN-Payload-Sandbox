@@ -62,7 +62,7 @@ namespace PAYLOAD_ENCODER
     };
 
     // Function to create a mapping between data types reference and respective size in bytes;
-    static inline const size_t getDataTypeSize(DATA_TYPES dataType)
+    static const size_t getDataTypeSize(DATA_TYPES dataType)
     {
         switch (dataType)
         {
