@@ -64,23 +64,22 @@ Go to **Tools->Processor** and select **ATmega32U4 (3.3V, 8MHz)**.
 #include <Arduino.h>
 #include <TheThingsNetwork.h>
 #include <CayenneLPP.h>         // include for Cayenne library
-#include "../lib/SparkFun_Si7021_Breakout_Library.h" // include for temperature and humidity sensor
+#include <SparkFun_Si7021_Breakout_Library.h> // include for temperature and humidity sensor
 #include <Wire.h>
-#include "../lib/KISSLoRa_sleep.h"     // Include to sleep MCU
+#include "KISSLoRa_sleep.h"     // Include to sleep MCU
 // #include "../include/CayenneLPP.hpp"
 
 // defines Serial 
 #define loraSerial  Serial1
 #define debugSerial Serial
 
-// LoRaWAN TTN
+// LoRaWAN TTN`
 
 // The KISS device should only be used in Europe
 #define freqPlan TTN_FP_EU868
 
 // Select personalisation type, uncomment selected option
-//#define OTAA
-#define ABP
+#define ABP // OTAA
 
 #if defined(OTAA)
   // Set your AppEUI and AppKey
@@ -94,6 +93,14 @@ Go to **Tools->Processor** and select **ATmega32U4 (3.3V, 8MHz)**.
 #else
   #error "No device configured."
 #endif
+
+/* FUNCTION PROTOTYPES (common practise...)*/
+static void initAccelerometer(void);
+static void setAccelerometerRange(uint8_t range_g);
+float get_lux_value();
+int8_t getRotaryPosition();
+void getAcceleration(float *x, float *y, float *z);
+void message(const uint8_t *payload, size_t size, port_t port);
 
 // Enable single channel operation, uncomment define to enable
 //#define SINGLE_CHANNEL
@@ -293,7 +300,7 @@ void message(const uint8_t *payload, size_t size, port_t port)
   debugSerial.println("-- MESSAGE");
   debugSerial.print("Received " + String(size) + " bytes on port " + String(port) + ":");
 
-  for (int i = 0; i < size; i++)
+  for (uint32_t i = 0; i < size; i++)
   {
     debugSerial.print(" " + String(payload[i]));
   }
