@@ -1,24 +1,14 @@
-/* MIT License
- * Copyright (c) 2024 Richard Kroesen
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+/*--------------------------------------------------------------------
+  This code is free software:
+  you can redistribute it and/or modify it under the terms of a Creative
+  Commons Attribution-NonCommercial 4.0 International License
+  (http://creativecommons.org/licenses/by-nc/4.0/) by
+  Remko Welling (https://ese.han.nl/~rwelling/) E-mail: remko.welling@han.nl
+
+  The program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  --------------------------------------------------------------------*/
 
 /*!
  * \file LoRa_TX_RX_Cayenne_HAN_Personalisation_001.ino
@@ -59,15 +49,16 @@ Go to **Tools->Processor** and select **ATmega32U4 (3.3V, 8MHz)**.
 6. In the Arduino IDE, choose **Sketch->Upload**.
 7. As soon as you see `PORTS {} / {} => {}` printed in the output window turn KISSLoRa on.
 8. When the upload process continue past showing `PORTS {} / {} => {}`, you can release the push button.
+
+
  */
 
-#include <Arduino.h>
+// Libraries
 #include <TheThingsNetwork.h>
 #include <CayenneLPP.h>         // include for Cayenne library
-#include "../lib/SparkFun_Si7021_Breakout_Library.h" // include for temperature and humidity sensor
+#include "SparkFun_Si7021_Breakout_Library.h" // include for temperature and humidity sensor
 #include <Wire.h>
-#include "../lib/KISSLoRa_sleep.h"     // Include to sleep MCU
-// #include "../include/CayenneLPP.hpp"
+#include "KISSLoRa_sleep.h"     // Include to sleep MCU
 
 // defines Serial 
 #define loraSerial  Serial1
