@@ -51,7 +51,7 @@
 // Set your AppEUI and AppKey
 // HAN KISS-xx: devEui is device specific
 const char *appEui = "0000000000000000";
-const char *appKey = "00000000000000000000000000000000";
+const char *appKey = "107D4313B85D35A3790A9ECDBA8F124E";
 #elif defined(ABP)
 const char *devAddr = "00000000";
 const char *nwkSKey = "0000000000000000";
@@ -147,8 +147,7 @@ void setup()
   sensor.begin();
 
   // Wait a maximum of 10s for Serial Monitor
-  while (!debugSerial && millis() < 10000)
-    ;
+  while (!debugSerial && millis() < 10000);
 
   // Switch off leds
   digitalWrite(RGBLED_RED, HIGH);
