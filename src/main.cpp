@@ -29,52 +29,24 @@
  * @date 2024-03-04 (4 March)
  * @version 1.0
  */
-
 #define RELEASE 1
 
 #include <Arduino.h>
 #include <TheThingsNetwork.h>
 #include <Wire.h>
 
+#include <main.hpp>
 #include <CayenneLPP.h>
 #include <SparkFun_Si7021_Breakout_Library.h>
 #include <KISSLoRa_sleep.h>
 
-// CONFIGURATION:
-#define loraSerial Serial1
-#define debugSerial Serial
-
-#define freqPlan TTN_FP_EU868 // The KISS device should only be used in Europe
-#define OTAA                  // ABP
-
-#if defined(OTAA)
-// Set your AppEUI and AppKey
-// HAN KISS-xx: devEui is device specific
-const char *appEui = "0000000000000000";
-const char *appKey = "107D4313B85D35A3790A9ECDBA8F124E";
-#elif defined(ABP)
-const char *devAddr = "00000000";
-const char *nwkSKey = "0000000000000000";
-const char *appSKey = "00000000000000000000000000000000";
-#else
-#error "No device configured."
-#endif
-
 /* FUNCTION PROTOTYPES */
 static void initAccelerometer(void);
 static void setAccelerometerRange(uint8_t range_g);
-float get_lux_value();
-int8_t getRotaryPosition();
+const float get_lux_value();
+const int8_t getRotaryPosition();
 void getAcceleration(float *x, float *y, float *z);
 void message(const uint8_t *payload, size_t size, port_t port);
-
-// Enable single channel operation, uncomment define to enable
-// #define SINGLE_CHANNEL
-
-// Define SF to override default (0)
-// #define SF 0  ///< default SF (7)
-#define SF 9
-
 TheThingsNetwork ttn(loraSerial, debugSerial, freqPlan); // TTN object for LoRaWAN radio
 
 // Cayennel LPP
@@ -100,33 +72,12 @@ uint8_t lppChannel{0};                ///< channel iterator
 // Sensors
 Weather sensor; // temperature and humidity sensor
 
-#define LIGHT_SENSOR_PIN 10 // Define for Analog inpu pin
-
-// defines for LEDs
-#define RGBLED_RED 12
-#define RGBLED_GREEN 6
-#define RGBLED_BLUE 11
-#define LED_LORA 8
-
-// defines for rotary encoder
-#define ROTARY_PIN_0 5
-#define ROTARY_PIN_1 13
-#define ROTARY_PIN_2 9
-#define ROTARY_PIN_3 30
-
-// defines for pushbutton
-#define BUTTON_PIN 7
-
-// defines for accelerometer
-// Set up to read the accelerometer values in range -2g to +2g - valid ranges: ±2G,±4G or ±8G
-#define ACC_RANGE 2
-
 float x, y, z; ///< Variables to hold acellerometer axis values.
 
-void setup()
-{
-  loraSerial.begin(57600);
-  debugSerial.begin(9600);
+static inline void initialize() {
+  loraSerial.begin(LORA_BAUD_RATE);
+  
+  DEBUG_SERIAL_BEGIN();
 
   pinMode(RGBLED_RED, OUTPUT);
   pinMode(RGBLED_GREEN, OUTPUT);
@@ -163,9 +114,9 @@ void setup()
   ttn.onMessage(message); // Set callback for incoming messages
   ttn.reset(true);        // Reset LoRaWAN mac and enable ADR
 
-  debugSerial.println("-- STATUS");
+  DEBUG_MSG_LN("-- STATUS");
   ttn.showStatus();
-  debugSerial.println("-- JOIN");
+  DEBUG_MSG_LN("-- JOIN");
 
 #if defined(OTAA)
   ttn.join(appEui, appKey);
@@ -177,48 +128,63 @@ void setup()
 #endif
 }
 
+void setup()
+{
+  initialize();
+}
+
+/* TO DO LIST 
+ - Humidity sending.
+ - Temperature sending. 
+ - luminosity sending. 
+ - Rotary Encoder sending.
+ - Acceleratation sending. 
+ - RN2483 Spanning sending. 
+ 
+ */
+
 void loop()
 {
-  debugSerial.println("-- LOOP");
+  DEBUG_MSG_LN("-- LOOP");
 
   // Measure Relative Humidity from the Si7021
   const float humidity = sensor.getRH();
-  debugSerial.print("Humidity: ");
-  debugSerial.print(humidity);
-  debugSerial.println(" %RH.");
+  DEBUG_MSG("Humidity: ");
+  DEBUG_MSG(humidity);
+  DEBUG_MSG_LN(" %RH.");
 
   // Measure Temperature from the Si7021
   const float temperature = sensor.getTemp();
-  debugSerial.print("Temperature: ");
-  debugSerial.print(temperature);
-  debugSerial.println(" Degrees.");
+  DEBUG_MSG("Temperature: ");
+  DEBUG_MSG(temperature);
+  DEBUG_MSG_LN(" Degrees.");
 
   // Measure luminosity
   const float luminosity = get_lux_value();
-  Serial.print("Ambient light: ");
-  Serial.print(luminosity);
-  Serial.println(" lux");
+  DEBUG_MSG("Ambient light: ");
+  DEBUG_MSG(luminosity);
+  DEBUG_MSG_LN(" lux");
 
   // get rotary encode position
   const uint8_t rotaryPosition = static_cast<uint8_t>(getRotaryPosition());
-  Serial.print("Rotary encoder position: ");
-  Serial.println(rotaryPosition);
+  DEBUG_MSG("Rotary encoder position: ");
+  DEBUG_MSG_LN(rotaryPosition);
 
   /// get accelerometer
   getAcceleration(&x, &y, &z);
-  Serial.print("Acceleration:\tx=");
-  Serial.print(x);
-  Serial.print("g\n\t\ty=");
-  Serial.print(y);
-  Serial.print("g\n\t\tz=");
-  Serial.print(z);
-  Serial.println("g");
-  Serial.println("---");
+  DEBUG_MSG("Acceleration:\tx=");
+  DEBUG_MSG(x);
+  DEBUG_MSG("g\n\t\ty=");
+  DEBUG_MSG(y);
+  DEBUG_MSG("g\n\t\tz=");
+  DEBUG_MSG(z);
+  DEBUG_MSG_LN("g");
+  DEBUG_MSG_LN("---");
 
   const float vdd = (static_cast<float>(ttn.getVDD()) / 1000);
-  Serial.print("RN2483 voltage: ");
-  Serial.print(vdd);
-  Serial.println(" Volt");
+  DEBUG_MSG("RN2483 voltage: ");
+  DEBUG_MSG(vdd);
+  DEBUG_MSG_LN(" Volt");
 
   lpp.reset();    // reset cayenne object
   lppChannel = 0; // reset channel counter
@@ -239,15 +205,15 @@ void loop()
 
 void message(const uint8_t *payload, size_t size, port_t port)
 {
-  debugSerial.println("-- MESSAGE");
-  debugSerial.print("Received " + String(size) + " bytes on port " + String(port) + ":");
+  DEBUG_MSG_LN("-- MESSAGE");
+  DEBUG_MSG("Received " + String(size) + " bytes on port " + String(port) + ":");
 
   for (uint32_t i = 0; i < size; i++)
   {
-    debugSerial.print(" " + String(payload[i]));
+    DEBUG_MSG(" " + String(payload[i]));
   }
 
-  debugSerial.println();
+  DEBUG_MSG_LN();
 
   // Toggle red LED when a message is received
   pinMode(RGBLED_RED, OUTPUT);
@@ -255,7 +221,7 @@ void message(const uint8_t *payload, size_t size, port_t port)
 }
 
 // Get the lux value from the APDS-9007 Ambient Light Photo Sensor
-float get_lux_value()
+const float get_lux_value()
 {
   int digital_value = analogRead(LIGHT_SENSOR_PIN);
   double vlux = digital_value * (2.56 / 1023.0); // lux value in volts
@@ -265,7 +231,7 @@ float get_lux_value()
 }
 
 // Poll the rotary switch 
-int8_t getRotaryPosition()
+const int8_t getRotaryPosition()
 {
   int8_t value = 0;
   if (digitalRead(ROTARY_PIN_0))
@@ -310,7 +276,7 @@ void writeAccelerometer(unsigned char REG_ADDRESS, unsigned char DATA)
 }
 
 // Read one register from the accelerometer
-uint8_t readAccelerometer(unsigned char REG_ADDRESS)
+const uint8_t readAccelerometer(unsigned char REG_ADDRESS)
 {
   uint8_t resp;
   Wire.beginTransmission(0x1D);
@@ -334,7 +300,7 @@ static void initAccelerometer(void)
   }
   else
   {
-    Serial.println(F("--- I2C Accelerometer not initialized"));
+    DEBUG_MSG_LN(F("--- I2C Accelerometer not initialized"));
   }
 }
 
@@ -441,6 +407,4 @@ void setSingleChannel(void)
   }
   loraSerial.println("mac set ch status 7 off");
   ret = loraSerial.readStringUntil('\n');
-
-  //  ret.trim();
 }
