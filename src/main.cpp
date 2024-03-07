@@ -32,52 +32,9 @@
 #define RELEASE 1
 
 #include <Arduino.h>
-#include <TheThingsNetwork.h>
-#include <Wire.h>
-
 #include <main.hpp>
-#include <LowPowerControl.hpp>
 
-#include <CayenneLPP.h>
-#include <SparkFun_Si7021_Breakout_Library.h>
-#include <KISSLoRa_sleep.h>
-
-/* FUNCTION PROTOTYPES */
-static inline void initialize();
-static void initAccelerometer(void);
-static void setAccelerometerRange(uint8_t range_g);
-const float get_lux_value();
-const int8_t getRotaryPosition();
-void getAcceleration(float *x, float *y, float *z);
-void message(const uint8_t *payload, size_t size, port_t port);
-TheThingsNetwork ttn(loraSerial, debugSerial, freqPlan); // TTN object for LoRaWAN radio
-
-// Cayennel LPP
-#define APPLICATION_PORT_CAYENNE 99 ///< LoRaWAN port to which CayenneLPP packets shall be sent
-#define LPP_PAYLOAD_MAX_SIZE 51     ///< Maximum payload size of a LoRaWAN packet
-
-#define LPP_CH_TEMPERATURE 0     ///< CayenneLPP CHannel for Temperature
-#define LPP_CH_HUMIDITY 1        ///< CayenneLPP CHannel for Humidity sensor
-#define LPP_CH_LUMINOSITY 2      ///< CayenneLPP CHannel for Luminosity sensor
-#define LPP_CH_ROTARYSWITCH 3    ///< CayenneLPP CHannel for Rotary switch
-#define LPP_CH_ACCELEROMETER 4   ///< CayenneLPP CHannel for Accelerometer
-#define LPP_CH_BOARDVCCVOLTAGE 5 ///< CayenneLPP CHannel for Processor voltage
-#define LPP_CH_PRESENCE 6        ///< CayenneLPP CHannel for Alarm
-#define LPP_CH_SET_INTERVAL 20   ///< CayenneLPP CHannel for setting downlink interval
-#define LPP_CH_SW_RELEASE 90     ///<
-
-#define ALARM 0x01 ///< Alarm state
-#define SAFE 0x00  ///< No-alarm state
-
-CayenneLPP lpp(LPP_PAYLOAD_MAX_SIZE); ///< Cayenne object for composing sensor message
-uint8_t lppChannel{0};                ///< channel iterator
-
-// Sensors
-Weather sensor; // temperature and humidity sensor
-float x, y, z; ///< Variables to hold acellerometer axis values.
-
-static const inline uint16_t desiredSleepDuration = 60; // In seconds. 
-constexpr uint8_t wdtWakeupsPerCycle = WatchdogTimer::calculateWakeups(desiredSleepDuration);
+CayenneLPP lpp(51); ///< Cayenne object for composing sensor message
 
 void setup() {
   pinMode(2, OUTPUT);
@@ -115,6 +72,7 @@ void loop() {
     DEBUG_MSG_LN(rotaryPosition);
 
     /// get accelerometer
+    float x, y, z;
     getAcceleration(&x, &y, &z);
     DEBUG_MSG("Acceleration:\tx=");
     DEBUG_MSG(x);
@@ -131,85 +89,20 @@ void loop() {
     DEBUG_MSG_LN(" Volt");
 
     lpp.reset();    // reset cayenne object
-    lppChannel = 0; // reset channel counter
-    lpp.addTemperature(LPP_CH_TEMPERATURE, temperature);
-    lpp.addRelativeHumidity(LPP_CH_HUMIDITY, humidity);
-    lpp.addLuminosity(LPP_CH_LUMINOSITY, luminosity);
-    lpp.addDigitalInput(LPP_CH_ROTARYSWITCH, rotaryPosition);
-    lpp.addAccelerometer(LPP_CH_ACCELEROMETER, x, y, z);
-    lpp.addAnalogInput(LPP_CH_BOARDVCCVOLTAGE, vdd);
+    lpp.addTemperature(static_cast<uint8_t>(NodeSensors::LPP_CH_TEMPERATURE), temperature);
+    lpp.addRelativeHumidity(static_cast<uint8_t>(NodeSensors::LPP_CH_HUMIDITY), humidity);
+    lpp.addLuminosity(static_cast<uint8_t>(NodeSensors::LPP_CH_LUMINOSITY), luminosity);
+    lpp.addDigitalInput(static_cast<uint8_t>(NodeSensors::LPP_CH_ROTARYSWITCH), rotaryPosition);
+    lpp.addAccelerometer(static_cast<uint8_t>(NodeSensors::LPP_CH_ACCELEROMETER), x, y, z);
+    lpp.addAnalogInput(static_cast<uint8_t>(NodeSensors::LPP_CH_BOARDVCCVOLTAGE), vdd);
 
     digitalWrite(LED_LORA, LOW); // switch LED_LORA LED on
 
-    // send cayenne message on port 99
     ttn.sendBytes(lpp.getBuffer(), lpp.getSize(), APPLICATION_PORT_CAYENNE, false, SF);
     digitalWrite(LED_LORA, HIGH); // switch LED_LORA LED off
   }
-  
   WatchdogTimer::enterSleep();
 }
-
-static inline void initialize() {
-  loraSerial.begin(LORA_BAUD_RATE);
-  
-  DEBUG_SERIAL_BEGIN();
-
-  pinMode(RGBLED_RED, OUTPUT);
-  pinMode(RGBLED_GREEN, OUTPUT);
-  pinMode(RGBLED_BLUE, OUTPUT);
-  pinMode(LED_LORA, OUTPUT);
-
-  pinMode(ROTARY_PIN_0, INPUT);
-  pinMode(ROTARY_PIN_1, INPUT);
-  pinMode(ROTARY_PIN_2, INPUT);
-  pinMode(ROTARY_PIN_3, INPUT);
-
-  // Disable pullup resistors
-  digitalWrite(ROTARY_PIN_0, 0);
-  digitalWrite(ROTARY_PIN_1, 0);
-  digitalWrite(ROTARY_PIN_2, 0);
-  digitalWrite(ROTARY_PIN_3, 0);
-
-  sensor.begin();
-
-  // Wait a maximum of 10s for Serial Monitor
-  while (!debugSerial && millis() < 10000);
-
-  // Switch off leds
-  digitalWrite(RGBLED_RED, HIGH);
-  digitalWrite(RGBLED_GREEN, HIGH);
-  digitalWrite(RGBLED_BLUE, HIGH);
-  digitalWrite(LED_LORA, HIGH);
-
-  Wire.begin();
-  initAccelerometer();
-  setAccelerometerRange(ACC_RANGE);
-
-  // Initialize LoRaWAN radio
-  ttn.onMessage(message); // Set callback for incoming messages
-  ttn.reset(true);        // Reset LoRaWAN mac and enable ADR
-
-  DEBUG_MSG_LN("-- STATUS");
-  ttn.showStatus();
-  DEBUG_MSG_LN("-- JOIN");
-
-#if defined(OTAA)
-  ttn.join(appEui, appKey);
-#elif defined(ABP)
-  ttn.personalize(devAddr, nwkSKey, appSKey);
-#if defined(SINGLE_CHANNEL)
-  setSingleChannel();
-#endif
-#endif
-}
-
-// /* TO DO LIST 
-//  - Humidity sending.
-//  - Temperature sending. 
-//  - luminosity sending. 
-//  - Rotary Encoder sending.
-//  - Acceleratation sending. 
-//  - RN2483 Spanning sending. 
 
 void message(const uint8_t *payload, size_t size, port_t port)
 {
@@ -259,17 +152,16 @@ const int8_t getRotaryPosition()
     value |= 1 << 3;
   }
 
-  // Set value to -1 if it's higher than 9 - this should never happen but just in case
+  // Error Flow Control: Check if value is out of range boundary. 
   if (value > 9)
   {
-    value = -1;
+    assert("SYS-ERR: Rotary reading failed."); 
   }
-
   return value;
 }
 
 // Write one register to the acceleromter
-void writeAccelerometer(unsigned char REG_ADDRESS, unsigned char DATA)
+void writeAccelerometer(const uint8_t REG_ADDRESS, const uint8_t DATA)
 {
   Wire.beginTransmission(0x1D);
   Wire.write(REG_ADDRESS);
@@ -278,7 +170,7 @@ void writeAccelerometer(unsigned char REG_ADDRESS, unsigned char DATA)
 }
 
 // Read one register from the accelerometer
-const uint8_t readAccelerometer(unsigned char REG_ADDRESS)
+const uint8_t readAccelerometer(const uint8_t REG_ADDRESS)
 {
   uint8_t resp;
   Wire.beginTransmission(0x1D);
@@ -328,7 +220,7 @@ static void setAccelerometerRange(uint8_t range_g)
   writeAccelerometer(0x0E, range_b);
 }
 
-// Read the acceleration from the accelerometer, very memory intensive why....
+// Read the acceleration from the accelerometer
 void getAcceleration(float *x, float *y, float *z)
 {
   // Resource: https://github.com/sparkfun/MMA8452_Accelerometer/blob/master/Libraries/Arduino/src/SparkFun_MMA8452Q.cpp
