@@ -76,7 +76,7 @@ uint8_t lppChannel{0};                ///< channel iterator
 Weather sensor; // temperature and humidity sensor
 float x, y, z; ///< Variables to hold acellerometer axis values.
 
-constexpr uint16_t desiredSleepDuration = 60; // In seconds. 
+static const inline uint16_t desiredSleepDuration = 60; // In seconds. 
 constexpr uint8_t wdtWakeupsPerCycle = WatchdogTimer::calculateWakeups(desiredSleepDuration);
 
 void setup() {
@@ -145,6 +145,7 @@ void loop() {
     ttn.sendBytes(lpp.getBuffer(), lpp.getSize(), APPLICATION_PORT_CAYENNE, false, SF);
     digitalWrite(LED_LORA, HIGH); // switch LED_LORA LED off
   }
+  
   WatchdogTimer::enterSleep();
 }
 
