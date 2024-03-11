@@ -12,7 +12,7 @@
 #include <CayenneLPP.h>
 #include <SparkFun_Si7021_Breakout_Library.h>
 #include <KISSLoRa_sleep.h>
-
+#include "../../include/CayenneLPP.hpp"
 /* DEVICE CONFIGURATION */
 #define loraSerial      Serial1
 #define debugSerial     Serial
@@ -26,7 +26,7 @@
 #define LORA_BAUD_RATE 57600
 /* DEBUG CONFIG */
 #define DEBUG_BAUD_RATE 9600
-#define DEBUG 1
+#define DEBUG 0
 
 #if DEBUG
 #define DEBUG_SERIAL_BEGIN() debugSerial.begin(DEBUG_BAUD_RATE)

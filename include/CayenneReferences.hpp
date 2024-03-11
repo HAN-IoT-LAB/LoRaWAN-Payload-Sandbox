@@ -61,6 +61,39 @@ namespace PAYLOAD_ENCODER
                          * Altitude  : 0.01 meter Signed MSB */
     };
 
+    static const uint16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType) {
+        switch (dataType)
+        {
+        case DATA_TYPES::DIG_IN:
+            break;
+        case DATA_TYPES::DIG_OUT:
+            break;
+        case DATA_TYPES::ANL_IN:
+            return 100;
+        case DATA_TYPES::ANL_OUT:
+            return 100;
+        case DATA_TYPES::ILLUM_SENS:
+            break;
+        case DATA_TYPES::PRSNC_SENS:
+            break;
+        case DATA_TYPES::TEMP_SENS:
+            return 10;
+        case DATA_TYPES::HUM_SENS:
+            return 10;
+        case DATA_TYPES::ACCRM_SENS:
+            return 1000;
+        case DATA_TYPES::BARO_SENS:
+            return 10;
+        case DATA_TYPES::GYRO_SENS:
+            return 100;
+        case DATA_TYPES::GPS_LOC:
+            return 10000;
+        default:
+            return 0;
+        }
+        return 0;
+    }
+
     // Function to create a mapping between data types reference and respective size in bytes;
     static const size_t getDataTypeSize(DATA_TYPES dataType)
     {
@@ -95,6 +128,15 @@ namespace PAYLOAD_ENCODER
         }
         return 0;
     }
+
+    /**
+     * @brief Enum class defining error types for Cayenne LPP.
+    */
+    enum class ERROR_TYPES : uint8_t {
+        LPP_ERROR_OVERFLOW      = 0,    /**< No error */
+        LPP_ERROR_UNKOWN_TYPE   = 1,    /**< Buffer overflow */
+        LPP_ERROR_OK            = 2     /**< Unknown data type */
+    };
 } // End of PAYLOAD_ENCODER Namespace.
 
 #endif // End of CAYENNE_REFERENCES_HPP

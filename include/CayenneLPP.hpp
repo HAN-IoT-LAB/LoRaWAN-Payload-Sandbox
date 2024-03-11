@@ -23,6 +23,7 @@
 #ifndef CAYENNE_LPP_HPP
 #define CAYENNE_LPP_HPP
 
+#include <cstring> // For memcpy
 #include <stdint.h>
 #include "CayenneReferences.hpp"
 
@@ -30,137 +31,159 @@
 
 namespace PAYLOAD_ENCODER
 {
+    /**
+     * @brief Template class for CayenneLPP payload encoder.
+     * 
+     * @tparam MaxSize Maximum size of the buffer.
+     */
     template <size_t MaxSize>
     class CayenneLPP
     {
     public:
+        /**
+         * @brief Constructor for CayenneLPP.
+         * 
+         * @param size Size of the buffer.
+         */
         explicit CayenneLPP(uint8_t size) : operationalSize(size > MaxSize ? MaxSize : size)
         {
             buffer = new uint8_t[operationalSize]; // Dynamic Buffer Allocation.
             currentIndex = 0;                      // Initialize at construction.
         }
 
+        /**
+         * @brief Destructor for CayenneLPP.
+         */
         ~CayenneLPP()
         {
             delete[] buffer; // Give the Allocated Memory back, to avoid leaks.
         };
 
         /* REQUIRED FUNCTIONS by ASSIGNMENT #1 */
+        /**
+         * @brief Resets the buffer.
+         */    
         void reset()
         {
             currentIndex = 0; // Reset currentIndex when buffer is reset
         }
 
+        /**
+         * @brief Gets the size of the buffer.
+         * 
+         * @return size_t Size of the buffer.
+         */
         size_t getSize(void) const
         {
             return currentIndex; // Returns the count of used bytes
         }
 
-        /* @Brief Return buffer by returning the array pointer.
-          Const return, to prevent caller of modifications (read-only).
-        */
-        const uint8_t *getBuffer(void)
+        /**
+         * @brief Returns the buffer.
+         * 
+         * @return const uint8_t* Pointer to the buffer.
+         */
+        uint8_t *getBuffer(void)
         {
             return buffer;
         }
 
+        /**
+         * @brief Copies the buffer to the destination buffer.
+         * 
+         * @param destBuffer Destination buffer.
+         * @return uint8_t Number of bytes copied.
+         */
         uint8_t copy(uint8_t *destBuffer) const
         {
-            if (!destBuffer)
+            if (! destBuffer)
             {
                 return 0; // Safety check to ensure the destination buffer is valid
             }
-
-            // Assuming 'buffer' is the source buffer and 'currentIndex' indicates the number of elements to copy
-            for (size_t i = 0; i < currentIndex; ++i)
-            {
-                destBuffer[i] = buffer[i]; // Manually copy each element
-            }
-
-            return static_cast<uint8_t>(currentIndex); // Return the number of elements copied
+            memcpy(destBuffer, buffer, currentIndex);
+            return static_cast<uint8_t>(currentIndex);
         }
-
+        
         /* END of REQUIRED FUNCTIONS by ASSIGNMENT #1 */
 
-        /* Additional Functionality */
-        // 1) Add a Bit/Byte;
-        void addWord_byte(const uint8_t byte);
-
-        // 2) 16-bit word;
-        void addWord_16b(const uint16_t word_16b);
-
-        // 3) 32-bit word;
-        void addWord_32b(const uint16_t word_16b);
-
-        // 4) float word;
-        void addFloat(const float word_decimal);
-        /* END of Additional Functionality */
-
-        // To be Reviewed:
-        const uint8_t addDigitalInput(uint8_t channel, uint8_t value)
-        {
-            auto expectedSize = currentIndex + getDataTypeSize(DATA_TYPES::DIG_IN);
-            if (expectedSize > operationalSize)
-            {
-                // Handle error
-                return 0;
+        // Overload for a single byte value
+        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, uint8_t value) {
+            auto expectedSize = currentIndex + getDataTypeSize(dataType) + 2;
+            if (expectedSize > operationalSize) {
+                return 0; // Indicate error
             }
-            buffer[currentIndex++] = channel;
-            buffer[currentIndex++] = static_cast<uint8_t>(DATA_TYPES::DIG_IN);
+
+            buffer[currentIndex++] = sensorChannel;
+            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
             buffer[currentIndex++] = value;
-            return currentIndex; // Success
+            return currentIndex; 
         }
 
-        const uint8_t addDigitalOutput(uint8_t channel, uint8_t value)
-        {
-            auto expectedSize = currentIndex + getDataTypeSize(DATA_TYPES::DIG_OUT);
-            if (expectedSize > operationalSize)
-            {
+        // Overload for a single float value
+        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float value) {
+            const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
+            int32_t scaledValue = round_and_cast(value * resolution);
+
+            const size_t expectedSize = currentIndex + 2 + sizeof(scaledValue);
+
+            if (expectedSize > operationalSize) {
                 return 0;
             }
-            buffer[currentIndex++] = channel;
-            buffer[currentIndex++] = static_cast<uint8_t>(DATA_TYPES::DIG_OUT);
-            buffer[currentIndex++] = value;
+
+            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
+            buffer[currentIndex++] = sensorChannel;
+            
+            // Store the scaledValue in the buffer (considering little-endian format; adjust if necessary)
+            memcpy(&buffer[currentIndex], &scaledValue, sizeof(scaledValue));
+            currentIndex += sizeof(scaledValue);
+            return currentIndex; 
+        }
+
+        // Overload for GPS coordinates (float, float, float)
+        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float lat, float lon, float alt) {
+            const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
+
+            // Scale the float values by their resolution
+            int32_t scaledLat = round_and_cast(lat * resolution);
+            int32_t scaledLon = round_and_cast(lon * resolution);
+            int32_t scaledAlt = round_and_cast(alt * resolution/100); // Dirty quick fix for this value.
+
+            const size_t expectedSize = currentIndex + 2 + sizeof(scaledLat) + sizeof(scaledLon) + sizeof(scaledAlt);
+            if (expectedSize > operationalSize) {
+                return 0;
+            }
+
+            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
+            buffer[currentIndex++] = sensorChannel;
+
+            memcpy(&buffer[currentIndex], &scaledLat, sizeof(scaledLat));
+            currentIndex += sizeof(scaledLat);
+            memcpy(&buffer[currentIndex], &scaledLon, sizeof(scaledLon));
+            currentIndex += sizeof(scaledLon);
+            memcpy(&buffer[currentIndex], &scaledAlt, sizeof(scaledAlt));
+            currentIndex += sizeof(scaledAlt);
 
             return currentIndex;
         }
 
-        const uint8_t addAnalogInput(uint8_t channel, float value)
-        {
-            auto expectedSize = currentIndex + getDataTypeSize(DATA_TYPES::ANL_IN);
-            if (expectedSize > operationalSize)
-            {
-                return 0;
-            }
-
-            const int16_t val = value * 100;
-            buffer[currentIndex++] = channel;
-            buffer[currentIndex++] = static_cast<uint8_t>(DATA_TYPES::ANL_IN);
-            buffer[currentIndex++] = val >> 8;
-            buffer[currentIndex++] = val;
-            return currentIndex;
-        }
-
-        uint8_t addAnalogOutput(uint8_t channel, float value)
-        {
-            auto expectedSize = currentIndex + getDataTypeSize(DATA_TYPES::ANL_OUT);
-            if (expectedSize > operationalSize)
-            {
-                return 0;
-            }
-            int16_t val = value * 100;
-            buffer[currentIndex++] = channel;
-            buffer[currentIndex++] = static_cast<uint8_t>(DATA_TYPES::ANL_OUT);
-            buffer[currentIndex++] = val >> 8;
-            buffer[currentIndex++] = val;
-
-            return currentIndex;
+        // Variadic template to dispatch to the correct implementation based on argument count and types
+        template<typename... Args>
+        uint8_t addField(DATA_TYPES dataType, uint8_t sensorChannel, Args... args) {
+            return addFieldImpl(dataType, sensorChannel, args...);
         }
 
     private:
         uint8_t *buffer;
         size_t operationalSize;
-        static inline size_t currentIndex;
+        size_t currentIndex;
+
+    static inline int32_t round_and_cast(const float value) {
+        if (value > 0) {
+            return static_cast<int32_t>(value + 0.5f);
+        } else {
+            return static_cast<int32_t>(value - 0.5f);
+        }
+    }
     }; // End of class CayenneLPP.
 } // End of Namespace PAYLOAD_ENCODER.
 #endif // CAYENNE_LPP_HPP
