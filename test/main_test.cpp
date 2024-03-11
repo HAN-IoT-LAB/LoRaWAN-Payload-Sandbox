@@ -97,7 +97,7 @@ void test_addAccelerometer(void) {
     PAYLOAD_ENCODER::DATA_TYPES dataType = PAYLOAD_ENCODER::DATA_TYPES::ACCRM_SENS;
 
     uint8_t sensorChannel = 1; // Example sensor channel
-    float x = 1.23f, y = -2.34f, z = 3.45f;
+    float x = 1.2306f, y = -2.34f, z = 3.45f;
 
     // Adding accelerometer data
     uint8_t result = lpp.addField(dataType, sensorChannel, x, y, z);
@@ -108,20 +108,45 @@ void test_addAccelerometer(void) {
     uint8_t* buffer = lpp.getBuffer();
 
     // Hardcoded expected scaled values
-    int16_t expectedScaledX = 1230;
+    int16_t expectedScaledX = 1231;
     int16_t expectedScaledY = -2340;
     int16_t expectedScaledZ = 3450;
 
     // Decode the stored values from the buffer for comparison
-    int16_t storedScaledX = (buffer[3] << 8) | buffer[4]; // Adjusted for big-endian byte order
-    int16_t storedScaledY = (buffer[5] << 8) | buffer[6];
-    int16_t storedScaledZ = (buffer[7] << 8) | buffer[8];
+    int16_t storedScaledX, storedScaledY, storedScaledZ;
+
+    memcpy(&storedScaledX, buffer + 2, sizeof(storedScaledX)); 
+    memcpy(&storedScaledY, buffer + 2 + sizeof(storedScaledX), sizeof(storedScaledY));
+    memcpy(&storedScaledZ, buffer + 2 + sizeof(storedScaledX) + sizeof(storedScaledY), sizeof(storedScaledZ));
 
     // Verify the stored values match the hardcoded expected scaled values
     TEST_ASSERT_EQUAL_INT16(expectedScaledX, storedScaledX);
     TEST_ASSERT_EQUAL_INT16(expectedScaledY, storedScaledY);
     TEST_ASSERT_EQUAL_INT16(expectedScaledZ, storedScaledZ);
 }
+
+void test_addFieldImpl_Temperature(void) {
+    PAYLOAD_ENCODER::CayenneLPP<250> lpp(250); // Assuming a maximum buffer size of 250 bytes
+    uint8_t sensorChannel = 1; // Example sensor channel for temperature
+    float temperatureValue = 25.55f; // Example temperature value to add
+
+    // Expected scaled value (assuming the resolution for TEMP_SENS might be 10 for 0.1°C precision)
+    int16_t expectedScaledValue = 256;
+
+    // Add temperature data
+    uint8_t result = lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::TEMP_SENS, sensorChannel, temperatureValue);
+
+    // Verify that data was added to the buffer successfully
+    TEST_ASSERT_NOT_EQUAL(0, result);
+
+    // Extract the stored scaled value from the buffer for comparison
+    int16_t storedScaledValue;
+    memcpy(&storedScaledValue, &lpp.getBuffer()[2], sizeof(storedScaledValue));
+
+    // Verify the stored scaled value matches the expected scaled value
+    TEST_ASSERT_EQUAL_INT16(expectedScaledValue, storedScaledValue);
+}
+
 
 // // Test the reset function
 // void test_reset(void) {
@@ -156,6 +181,7 @@ int main(int argc, char **argv)
     RUN_TEST(test_addFieldImpl_GPSData);
     RUN_TEST(test_addFieldImpl_GPSData_highPrecision);
     RUN_TEST(test_addAccelerometer);
+    RUN_TEST(test_addFieldImpl_Temperature);
     UNITY_END();
     return 0;
 }

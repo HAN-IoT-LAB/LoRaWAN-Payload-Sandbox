@@ -122,7 +122,7 @@ namespace PAYLOAD_ENCODER
         // Overload for a single float value
         const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float value) {
             const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
-            int32_t scaledValue = round_and_cast(value * resolution);
+            int16_t scaledValue = round_and_cast_int16(value * resolution);
 
             const size_t expectedSize = currentIndex + 2 + sizeof(scaledValue);
 
@@ -133,35 +133,31 @@ namespace PAYLOAD_ENCODER
             buffer[currentIndex++] = static_cast<uint8_t>(dataType);
             buffer[currentIndex++] = sensorChannel;
             
-            // Store the scaledValue in the buffer (considering little-endian format; adjust if necessary)
             memcpy(&buffer[currentIndex], &scaledValue, sizeof(scaledValue));
             currentIndex += sizeof(scaledValue);
             return currentIndex; 
         }
 
-        // Overload for GPS coordinates (float, float, float)
-        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float lat, float lon, float alt) {
+        uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float first, float second, float third) {
+            const size_t totalBytes = getDataTypeSize(dataType);
             const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
-
-            // Scale the float values by their resolution
-            int32_t scaledLat = round_and_cast(lat * resolution);
-            int32_t scaledLon = round_and_cast(lon * resolution);
-            int32_t scaledAlt = round_and_cast(alt * resolution/100); // Dirty quick fix for this value.
-
-            const size_t expectedSize = currentIndex + 2 + sizeof(scaledLat) + sizeof(scaledLon) + sizeof(scaledAlt);
-            if (expectedSize > operationalSize) {
-                return 0;
-            }
-
+            
+            if (currentIndex + 2 + totalBytes > operationalSize) return 0; // Check for buffer overflow
+            
             buffer[currentIndex++] = static_cast<uint8_t>(dataType);
             buffer[currentIndex++] = sensorChannel;
 
-            memcpy(&buffer[currentIndex], &scaledLat, sizeof(scaledLat));
-            currentIndex += sizeof(scaledLat);
-            memcpy(&buffer[currentIndex], &scaledLon, sizeof(scaledLon));
-            currentIndex += sizeof(scaledLon);
-            memcpy(&buffer[currentIndex], &scaledAlt, sizeof(scaledAlt));
-            currentIndex += sizeof(scaledAlt);
+            if (dataType == DATA_TYPES::GPS_LOC) {
+                // Process GPS data (latitude, longitude, altitude)
+                storeValue(first * resolution); // Latitude
+                storeValue(second * resolution); // Longitude
+                storeValue(third * (resolution / 100)); // Altitude with specific scaling
+            } else if (dataType == DATA_TYPES::ACCRM_SENS) {
+                // Process accelerometer data (X, Y, Z axes)
+                storeValueAsInt16(first * resolution);
+                storeValueAsInt16(second * resolution);
+                storeValueAsInt16(third * resolution);
+            }
 
             return currentIndex;
         }
@@ -177,13 +173,34 @@ namespace PAYLOAD_ENCODER
         size_t operationalSize;
         size_t currentIndex;
 
-    static inline int32_t round_and_cast(const float value) {
-        if (value > 0) {
-            return static_cast<int32_t>(value + 0.5f);
-        } else {
-            return static_cast<int32_t>(value - 0.5f);
+        // Helper to process and store GPS values, expecting them to fit in 3 bytes each
+        void storeValue(float scaledValue) {
+            int32_t value = round_and_cast(scaledValue);
+            memcpy(&buffer[currentIndex], &value, sizeof(value));
+            currentIndex += sizeof(value);
         }
-    }
+
+        void storeValueAsInt16(float scaledValue) {
+            int16_t value = round_and_cast_int16(scaledValue);
+            memcpy(&buffer[currentIndex], &value, sizeof(value));
+            currentIndex += sizeof(value);
+        }
+
+        static inline int32_t round_and_cast(const float value) {
+            if (value > 0) {
+                return static_cast<int32_t>(value + 0.5f);
+            } else {
+                return static_cast<int32_t>(value - 0.5f);
+            }
+        }
+
+        static inline int16_t round_and_cast_int16(const float value) {
+            if (value > 0) {
+                return static_cast<int16_t>(value + 0.5f);
+            } else {
+                return static_cast<int16_t>(value - 0.5f);
+            }
+        }
     }; // End of class CayenneLPP.
 } // End of Namespace PAYLOAD_ENCODER.
 #endif // CAYENNE_LPP_HPP
