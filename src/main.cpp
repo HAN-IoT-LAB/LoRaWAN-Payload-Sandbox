@@ -1,29 +1,15 @@
-/* MIT License
- * Copyright (c) 2024 Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+/* This code is free software:
+ * you can redistribute it and/or modify it under the terms of a Creative
+ * Commons Attribution-NonCommercial 4.0 International License
+ * (http://creativecommons.org/licenses/by-nc/4.0/)
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
  */
 
 /**
  * @file main.cpp
  * @brief Sends packets on TTN using the LISSLoRa gadget.
- * Based on the original code from: https://github.com/YourproductSmarter/KISSLoRa-demo
+ * Based on the original code from: https://github.com/YourproductSmarter/KISSLoRa-demo (Refactored)
  * This version is using ABP pesonalisation.
  * @author Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
  * @date 2024-03-04 (4 March)
@@ -33,6 +19,7 @@
 
 #include <Arduino.h>
 #include <main.hpp>
+#include <CayenneLPP.hpp>
 
 CayenneLPP lpp(51); ///< Cayenne object for composing sensor message
 
@@ -45,9 +32,6 @@ void setup() {
 }
 
 void loop() {
-    // Check if the required number of WDT intervals has passed
-  if (WatchdogTimer::wdtCounter >= wdtWakeupsPerCycle) {
-    WatchdogTimer::wdtCounter = 0; // Reset counter for the next cycle
     DEBUG_MSG_LN("-- LOOP");
 
     // Measure Relative Humidity from the Si7021
@@ -100,10 +84,8 @@ void loop() {
 
     digitalWrite(LED_LORA, LOW); // switch LED_LORA LED on
 
-    ttn.sendBytes(lpp.getBuffer(), lpp.getSize(), APPLICATION_PORT_CAYENNE, false, SF);
+    ttn.sendBytes(lpp.getBuffer(), lpp.getSize(), APPLICATION_FPORT_CAYENNE, false, SF);
     digitalWrite(LED_LORA, HIGH); // switch LED_LORA LED off
-  }
-  WatchdogTimer::enterSleep();
 }
 
 void message(const uint8_t *payload, size_t size, port_t port)

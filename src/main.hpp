@@ -1,3 +1,11 @@
+/* This code is free software:
+ * you can redistribute it and/or modify it under the terms of a Creative
+ * Commons Attribution-NonCommercial 4.0 International License
+ * (http://creativecommons.org/licenses/by-nc/4.0/)
+ *
+ * Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+ */
+
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
@@ -7,12 +15,11 @@
 #include <Wire.h>
 
 #include <main.hpp>
-#include <LowPowerControl.hpp>
-
 #include <CayenneLPP.h>
 #include <SparkFun_Si7021_Breakout_Library.h>
-#include <KISSLoRa_sleep.h>
+
 #include "../../include/CayenneLPP.hpp"
+
 /* DEVICE CONFIGURATION */
 #define loraSerial      Serial1
 #define debugSerial     Serial
@@ -20,7 +27,7 @@
 #define freqPlan        TTN_FP_EU868 // The KISS device should only be used in Europe
 #define OTAA                         // ABP
 
-#define SF 9    // Spreading Factor. 
+#define SF 9                        // Spreading Factor. 
 
 /* END OF DEVICE CONFIGURATION */
 #define LORA_BAUD_RATE 57600
@@ -59,7 +66,7 @@
 
 /* END OF PIN DEFINES */
 
-#define APPLICATION_PORT_CAYENNE 99 ///< LoRaWAN port to which CayenneLPP packets shall be sent
+#define APPLICATION_FPORT_CAYENNE 1 ///< LoRaWAN port to which CayenneLPP packets shall be sent
 
 #if defined(OTAA)
 // HAN KISS-xx: devEui is device specific
@@ -75,8 +82,6 @@ const char *appSKey = "00000000000000000000000000000000";
 
 /* GLOBAL VARIABLES: */
 Weather sensor; // temperature and humidity sensor
-static const inline uint16_t desiredSleepDuration = 60; // In seconds. 
-constexpr uint8_t wdtWakeupsPerCycle = WatchdogTimer::calculateWakeups(desiredSleepDuration);
 
 /* FUNCTION PROTOTYPES */
 static inline void initialize();

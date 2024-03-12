@@ -1,15 +1,9 @@
-/* MIT License
- * Copyright (c) 2024 Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+/* This code is free software:
+ * you can redistribute it and/or modify it under the terms of a Creative
+ * Commons Attribution-NonCommercial 4.0 International License
+ * (http://creativecommons.org/licenses/by-nc/4.0/)
+ * 
+ * Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
  */
 
 #ifndef CAYENNE_REFERENCES_HPP
@@ -24,18 +18,18 @@ namespace PAYLOAD_ENCODER
      */
     enum class DATA_TYPES : uint8_t
     {
-        DIG_IN = 0,       /* DIGITAL INPUT */
-        DIG_OUT = 1,      /* DITIAL OUTPUT */
-        ANL_IN = 2,       /* ANALOG INPUT */
-        ANL_OUT = 3,      /* ANALOG OUTPUT */
-        ILLUM_SENS = 101, /* ILLUMINATION SENSOR */
-        PRSNC_SENS = 102, /* PRESCENCE SENSOR */
-        TEMP_SENS = 103,  /* TEMPERATURE SENSOR */
-        HUM_SENS = 104,   /* HUMIDITY SENSOR */
-        ACCRM_SENS = 113, /* ACCELEROMETER */
-        BARO_SENS = 115,  /* BAROMETER */
-        GYRO_SENS = 134,  /* GYROMETER */
-        GPS_LOC = 136     /* GPS LOCATION METER */
+        DIG_IN      = 0,    /* DIGITAL INPUT */
+        DIG_OUT     = 1,    /* DITIAL OUTPUT */
+        ANL_IN      = 2,    /* ANALOG INPUT */
+        ANL_OUT     = 3,    /* ANALOG OUTPUT */
+        ILLUM_SENS  = 101,  /* ILLUMINATION SENSOR */
+        PRSNC_SENS  = 102,  /* PRESCENCE SENSOR */
+        TEMP_SENS   = 103,  /* TEMPERATURE SENSOR */
+        HUM_SENS    = 104,  /* HUMIDITY SENSOR */
+        ACCRM_SENS  = 113,  /* ACCELEROMETER */
+        BARO_SENS   = 115,  /* BAROMETER */
+        GYRO_SENS   = 134,  /* GYROMETER */
+        GPS_LOC     = 136   /* GPS LOCATION METER */
     };
 
     /**
@@ -43,20 +37,20 @@ namespace PAYLOAD_ENCODER
      */
     enum class DATA_TYPES_SIZES : size_t
     {
-        DIG_IN = 1,     /* 1 bit resolution */
-        DIG_OUT = 1,    /* 1 bit resolution */
-        ANL_IN = 2,     /* 0.01 Signed */
-        ANL_OUT = 2,    /* 0.01 Signed */
-        ILLUM_SENS = 2, /* 1 Lux Unsigned MSB */
-        PRSNC_SENS = 1, /* 1 bit resolution */
-        TEMP_SENS = 2,  /* 0.1 °C Signed MSB */
-        HUM_SENS = 1,   /* 0.5 % Unsigned */
-        ACCRM_SENS = 6, /* 0.001 G Signed MSB per axis */
-        BARO_SENS = 2,  /* 0.1 hPa Unsigned MSB */
-        GYRO_SENS = 6,  /* 0.01 °/s Signed MSB per axis */
-        GPS_LOC = 9     /* Latitude  : 0.0001° Signed MSB
-                         * Longitude : 0.0001° Signed MSB
-                         * Altitude  : 0.01 meter Signed MSB */
+        DIG_IN      = 1,    /* 1 bit resolution */
+        DIG_OUT     = 1,    /* 1 bit resolution */
+        ANL_IN      = 2,    /* 0.01 Signed */
+        ANL_OUT     = 2,    /* 0.01 Signed */
+        ILLUM_SENS  = 2,    /* 1 Lux Unsigned MSB */
+        PRSNC_SENS  = 1,    /* 1 bit resolution */
+        TEMP_SENS   = 2,    /* 0.1 °C Signed MSB */
+        HUM_SENS    = 1,    /* 0.5 % Unsigned */
+        ACCRM_SENS  = 6,    /* 0.001 G Signed MSB per axis */
+        BARO_SENS   = 2,    /* 0.1 hPa Unsigned MSB */
+        GYRO_SENS   = 6,    /* 0.01 °/s Signed MSB per axis */
+        GPS_LOC     = 12    /* Latitude  : 0.0001° Signed MSB
+                             * Longitude : 0.0001° Signed MSB
+                             * Altitude  : 0.01 meter Signed MSB */
     };
 
     /**
@@ -64,7 +58,8 @@ namespace PAYLOAD_ENCODER
      * @param dataType The data type.
      * @return The resolution of the data type.
      */
-    static const uint16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType) {
+    static const uint16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType)
+    {
         switch (dataType)
         {
         case DATA_TYPES::DIG_IN:
@@ -101,7 +96,8 @@ namespace PAYLOAD_ENCODER
      * @brief Function to create a mapping between data types reference and respective size in bytes.
      * @param dataType The data type.
      * @return The size of the data type in bytes.
-     */    static const size_t getDataTypeSize(DATA_TYPES dataType)
+     */
+    static const size_t getDataTypeSize(DATA_TYPES dataType)
     {
         switch (dataType)
         {
@@ -130,19 +126,21 @@ namespace PAYLOAD_ENCODER
         case DATA_TYPES::GPS_LOC:
             return static_cast<size_t>(DATA_TYPES_SIZES::GPS_LOC);
         default:
-            return 0; // Or handle unknown data type appropriately
+            return 0;
         }
         return 0;
     }
 
     /**
      * @brief Enum class defining error types for Cayenne LPP.
-    */
-    enum class ERROR_TYPES : uint8_t {
-        LPP_ERROR_OVERFLOW      = 0,    /**< No error */
-        LPP_ERROR_UNKOWN_TYPE   = 1,    /**< Buffer overflow */
-        LPP_ERROR_OK            = 2     /**< Unknown data type */
+     */
+    enum class ERROR_TYPES : uint8_t
+    {
+        LPP_ERROR_OVERFLOW = 0,    /**< No error */
+        LPP_ERROR_UNKOWN_TYPE = 1, /**< Buffer overflow */
+        LPP_ERROR_OK = 2           /**< Unknown data type */
     };
+
 } // End of PAYLOAD_ENCODER Namespace.
 
 #endif // End of CAYENNE_REFERENCES_HPP
