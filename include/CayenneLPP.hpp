@@ -23,7 +23,6 @@
 #ifndef CAYENNE_LPP_HPP
 #define CAYENNE_LPP_HPP
 
-#include <cstring> // For memcpy
 #include <stdint.h>
 #include "CayenneReferences.hpp"
 
@@ -100,72 +99,70 @@ namespace PAYLOAD_ENCODER
             {
                 return 0; // Safety check to ensure the destination buffer is valid
             }
-            memcpy(destBuffer, buffer, currentIndex);
+            my_memcpy(destBuffer, buffer, currentIndex);
             return static_cast<uint8_t>(currentIndex);
         }
         
         /* END of REQUIRED FUNCTIONS by ASSIGNMENT #1 */
 
-        // Overload for a single byte value
-        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, uint8_t value) {
-            auto expectedSize = currentIndex + getDataTypeSize(dataType) + 2;
-            if (expectedSize > operationalSize) {
-                return 0; // Indicate error
-            }
-
-            buffer[currentIndex++] = sensorChannel;
-            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
-            buffer[currentIndex++] = value;
-            return currentIndex; 
+        // Add Digital Input
+        uint8_t addDigitalInput(uint8_t sensorChannel, uint8_t value) {
+            return addFieldImpl(DATA_TYPES::DIG_IN, sensorChannel, value);
         }
 
-        // Overload for a single float value
-        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float value) {
-            const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
-            int16_t scaledValue = round_and_cast_int16(value * resolution);
-
-            const size_t expectedSize = currentIndex + 2 + sizeof(scaledValue);
-
-            if (expectedSize > operationalSize) {
-                return 0;
-            }
-
-            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
-            buffer[currentIndex++] = sensorChannel;
-            
-            memcpy(&buffer[currentIndex], &scaledValue, sizeof(scaledValue));
-            currentIndex += sizeof(scaledValue);
-            return currentIndex; 
+        // Add Digital Output
+        uint8_t addDigitalOutput(uint8_t sensorChannel, uint8_t value) {
+            return addFieldImpl(DATA_TYPES::DIG_OUT, sensorChannel, value);
         }
 
-        uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float first, float second, float third) {
-            const size_t totalBytes = getDataTypeSize(dataType);
-            const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
-            
-            if (currentIndex + 2 + totalBytes > operationalSize) return 0; // Check for buffer overflow
-            
-            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
-            buffer[currentIndex++] = sensorChannel;
-
-            if (dataType == DATA_TYPES::GPS_LOC) {
-                // Process GPS data (latitude, longitude, altitude)
-                storeValue(first * resolution); // Latitude
-                storeValue(second * resolution); // Longitude
-                storeValue(third * (resolution / 100)); // Altitude with specific scaling
-            } else if (dataType == DATA_TYPES::ACCRM_SENS) {
-                // Process accelerometer data (X, Y, Z axes)
-                storeValueAsInt16(first * resolution);
-                storeValueAsInt16(second * resolution);
-                storeValueAsInt16(third * resolution);
-            }
-
-            return currentIndex;
+        // Add Analog Input
+        uint8_t addAnalogInput(uint8_t sensorChannel, float value) {
+            return addFieldImpl(DATA_TYPES::ANL_IN, sensorChannel, value);
         }
 
-        // Variadic template to dispatch to the correct implementation based on argument count and types
-        template<typename... Args>
-        uint8_t addField(DATA_TYPES dataType, uint8_t sensorChannel, Args... args) {
-            return addFieldImpl(dataType, sensorChannel, args...);
+        // Add Analog Output
+        uint8_t addAnalogOutput(uint8_t sensorChannel, float value) {
+            return addFieldImpl(DATA_TYPES::ANL_OUT, sensorChannel, value);
+        }
+
+        // Add Illumination
+        uint8_t addIllumination(uint8_t sensorChannel, uint16_t value) {
+            return addFieldImpl(DATA_TYPES::ILLUM_SENS, sensorChannel, value);
+        }
+
+        // Add Presence
+        uint8_t addPresence(uint8_t sensorChannel, uint8_t value) {
+            return addFieldImpl(DATA_TYPES::PRSNC_SENS, sensorChannel, value);
+        }
+
+        // Add Temperature
+        uint8_t addTemperature(uint8_t sensorChannel, float value) {
+            return addFieldImpl(DATA_TYPES::TEMP_SENS, sensorChannel, value);
+        }
+
+        // Add Humidity
+        uint8_t addHumidity(uint8_t sensorChannel, float value) {
+            return addFieldImpl(DATA_TYPES::HUM_SENS, sensorChannel, value);
+        }
+
+        // Add Accelerometer
+        uint8_t addAccelerometer(uint8_t sensorChannel, float x, float y, float z) {
+            return addFieldImpl(DATA_TYPES::ACCRM_SENS, sensorChannel, x, y, z);
+        }
+
+        // Add Barometer
+        uint8_t addBarometer(uint8_t sensorChannel, float value) {
+            return addFieldImpl(DATA_TYPES::BARO_SENS, sensorChannel, value);
+        }
+
+        // Add Gyroscope
+        uint8_t addGyroscope(uint8_t sensorChannel, float x, float y, float z) {
+            return addFieldImpl(DATA_TYPES::GYRO_SENS, sensorChannel, x, y, z);
+        }
+
+        // Add GPS Location
+        uint8_t addGPSLocation(uint8_t sensorChannel, float lat, float lon, float alt) {
+            return addFieldImpl(DATA_TYPES::GPS_LOC, sensorChannel, lat, lon, alt);
         }
 
     private:
@@ -176,13 +173,13 @@ namespace PAYLOAD_ENCODER
         // Helper to process and store GPS values, expecting them to fit in 3 bytes each
         void storeValue(float scaledValue) {
             int32_t value = round_and_cast(scaledValue);
-            memcpy(&buffer[currentIndex], &value, sizeof(value));
+            my_memcpy(&buffer[currentIndex], &value, sizeof(value));
             currentIndex += sizeof(value);
         }
 
         void storeValueAsInt16(float scaledValue) {
             int16_t value = round_and_cast_int16(scaledValue);
-            memcpy(&buffer[currentIndex], &value, sizeof(value));
+            my_memcpy(&buffer[currentIndex], &value, sizeof(value));
             currentIndex += sizeof(value);
         }
 
@@ -201,6 +198,90 @@ namespace PAYLOAD_ENCODER
                 return static_cast<int16_t>(value - 0.5f);
             }
         }
+
+        // Overload for a single byte value
+        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, uint8_t value) {
+            auto expectedSize = currentIndex + getDataTypeSize(dataType) + 2;
+            if (expectedSize > operationalSize) {
+                return 0; // Indicate error
+            }
+
+            buffer[currentIndex++] = sensorChannel;
+            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
+            buffer[currentIndex++] = value;
+            return currentIndex; 
+        }
+
+        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, uint16_t value) {
+            auto expectedSize = currentIndex + getDataTypeSize(dataType) + 2;
+            if (expectedSize > operationalSize) {
+                return 0; // Indicate error
+            }
+
+            buffer[currentIndex++] = sensorChannel;
+            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
+            buffer[currentIndex++] = static_cast<uint8_t>(value >> 8) & 0xFF;
+            buffer[currentIndex++] = value & 0xFF;
+            return currentIndex; 
+        }
+
+        // Overload for a single float value
+        const uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float value) {
+            const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
+            int16_t scaledValue = round_and_cast_int16(value * resolution);
+
+            const size_t expectedSize = currentIndex + 2 + sizeof(scaledValue);
+
+            if (expectedSize > operationalSize) {
+                return 0;
+            }
+
+            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
+            buffer[currentIndex++] = sensorChannel;
+            
+            my_memcpy(&buffer[currentIndex], &scaledValue, sizeof(scaledValue));
+            currentIndex += sizeof(scaledValue);
+            return currentIndex; 
+        }
+
+        uint8_t addFieldImpl(DATA_TYPES dataType, uint8_t sensorChannel, float first, float second, float third) {
+            const size_t totalBytes = getDataTypeSize(dataType);
+            const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
+            
+            if (currentIndex + 2 + totalBytes > operationalSize) return 0; // Check for buffer overflow
+            
+            buffer[currentIndex++] = static_cast<uint8_t>(dataType);
+            buffer[currentIndex++] = sensorChannel;
+
+            if (dataType == DATA_TYPES::GPS_LOC) {
+                // Process GPS data (latitude, longitude, altitude)
+                storeValue(first * resolution); // Latitude
+                storeValue(second * resolution); // Longitude
+                storeValue(third * (resolution / 100)); // Altitude with specific scaling
+            } else if (dataType == DATA_TYPES::ACCRM_SENS || dataType == DATA_TYPES::GYRO_SENS) {
+                // Process accelerometer data (X, Y, Z axes)
+                storeValueAsInt16(first * resolution);
+                storeValueAsInt16(second * resolution);
+                storeValueAsInt16(third * resolution);
+            }
+
+            return currentIndex;
+        }
+
+        // Variadic template to dispatch to the correct implementation based on argument count and types
+        template<typename... Args>
+        uint8_t addField(DATA_TYPES dataType, uint8_t sensorChannel, Args... args) {
+            return addFieldImpl(dataType, sensorChannel, args...);
+        }
+
+        void my_memcpy(void *dest, const void *src, size_t n) {
+            char *cdest = (char *)dest;
+            const char *csrc = (const char *)src;
+            for (size_t i = 0; i < n; ++i) {
+            cdest[i] = csrc[i];
+            }
+        }
+
     }; // End of class CayenneLPP.
 } // End of Namespace PAYLOAD_ENCODER.
 #endif // CAYENNE_LPP_HPP

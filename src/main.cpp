@@ -36,6 +36,8 @@
 
 CayenneLPP lpp(51); ///< Cayenne object for composing sensor message
 
+PAYLOAD_ENCODER::CayenneLPP<50> pay(5);
+
 void setup() {
   pinMode(2, OUTPUT);
   digitalWrite(2, HIGH); 

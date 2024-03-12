@@ -23,165 +23,246 @@
 #include <unity.h>
 #include "../include/CayenneLPP.hpp"
 
-void setUp(void)
-{
+void setUp(void) {
+    // Set up any required items before each test
 }
 
-void tearDown(void)
-{
+void tearDown(void) {
+    // Clean up after each test
 }
 
-// Test adding GPS data to the CayenneLPP instance
-void test_addFieldImpl_GPSData(void) {
-    PAYLOAD_ENCODER::CayenneLPP<250> lpp(250); // Initialize with a buffer size
+void test_addDigitalInput(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 1;
+    uint8_t value = 1; // Digital value to add (true)
 
-    // Example sensor channel and data type for GPS location
-    uint8_t sensorChannel = 1; 
-    PAYLOAD_ENCODER::DATA_TYPES dataType = PAYLOAD_ENCODER::DATA_TYPES::GPS_LOC;
+    uint8_t result = lpp.addDigitalInput(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
 
-    // Adding GPS data with predefined values
-    float lat = 51.5074f, lon = -0.1278f, alt = 30.0f;
-    lpp.addField(dataType, sensorChannel, lat, lon, alt);
+    uint8_t* buffer = lpp.getBuffer();
+    // Assuming the first byte is the sensor channel, the second is the data type, and the third is the value
+    TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::DATA_TYPES::DIG_IN, buffer[1]);
+    TEST_ASSERT_EQUAL_UINT8(value, buffer[2]);
+}
+
+void test_addAnalogInput(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 3;
+    float value = 3.3f; // Example analog input value
+
+    uint8_t result = lpp.addAnalogInput(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
+
+    uint8_t* buffer = lpp.getBuffer();
+    TEST_ASSERT_EQUAL_INT8(74, buffer[2]);
+    TEST_ASSERT_EQUAL_INT8(1, buffer[3]);
+}
+
+void test_addAnalogOutput(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 4;
+    float value = 2.2f; // Example analog output value
+
+    uint8_t result = lpp.addAnalogOutput(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
+
+    uint8_t* buffer = lpp.getBuffer();
+    TEST_ASSERT_EQUAL_INT16(220, buffer[2]);
+}
+
+void test_addDigitalOutput(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 2;
+    uint8_t value = 0; // Digital output value to add (false)
+
+    uint8_t result = lpp.addDigitalOutput(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
+
+    uint8_t* buffer = lpp.getBuffer();
+    TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::DATA_TYPES::DIG_OUT, buffer[1]);
+    TEST_ASSERT_EQUAL_UINT8(value, buffer[2]);
+}
+
+void test_addIllumination(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 5;
+    uint16_t value = 550; // Example illumination value in lux
+
+    uint8_t result = lpp.addIllumination(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
+
+    uint8_t* buffer = lpp.getBuffer();
+    TEST_ASSERT_EQUAL_UINT8(0x02, buffer[2]);
+    TEST_ASSERT_EQUAL_UINT8(0x26, buffer[3]);
+}
+
+void test_addPresence(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 6;
+    uint8_t value = 1; // Presence detected
+
+    uint8_t result = lpp.addPresence(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
+
+    uint8_t* buffer = lpp.getBuffer();
+    TEST_ASSERT_EQUAL_UINT8(1, buffer[2]);
+}
+
+void test_addTemperature(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 1;
+    float value = 25.5f; // Example temperature value in Celsius
+
+    uint8_t result = lpp.addTemperature(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
 
     uint8_t* buffer = lpp.getBuffer();
 
-    // Static expected scaled values
-    int32_t expectedScaledLat = 515074;
-    int32_t expectedScaledLon = -1278;
-    int32_t expectedScaledAlt = 3000;
-
-    // Decode the stored values from the buffer
-    int32_t storedScaledLat, storedScaledLon, storedScaledAlt;
-    memcpy(&storedScaledLat, buffer + 2, sizeof(storedScaledLat)); 
-    memcpy(&storedScaledLon, buffer + 2 + sizeof(storedScaledLat), sizeof(storedScaledLon));
-    memcpy(&storedScaledAlt, buffer + 2 + sizeof(storedScaledLat) + sizeof(storedScaledLon), sizeof(storedScaledAlt));
-
-    // Verify the stored values match the expected static values
-    TEST_ASSERT_EQUAL_INT32(expectedScaledLat, storedScaledLat);
-    TEST_ASSERT_EQUAL_INT32(expectedScaledLon, storedScaledLon);
-    TEST_ASSERT_EQUAL_INT32(expectedScaledAlt, storedScaledAlt);
+    TEST_ASSERT_EQUAL_UINT8(255, buffer[2]);
 }
 
-void test_addFieldImpl_GPSData_highPrecision(void) {
-    PAYLOAD_ENCODER::CayenneLPP<250> lpp(250); // Initialize with a buffer size
+void test_addHumidity(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 2;
+    float value = 75.5f; // Example humidity value in percentage
 
-    // Example sensor channel and data type for GPS location
-    uint8_t sensorChannel = 1; 
-    PAYLOAD_ENCODER::DATA_TYPES dataType = PAYLOAD_ENCODER::DATA_TYPES::GPS_LOC;
-
-    // Adding GPS data with predefined values
-    float lat = 51.5074111f, lon = -0.1278511f, alt = 30.0111f;
-    lpp.addField(dataType, sensorChannel, lat, lon, alt);
+    uint8_t result = lpp.addHumidity(sensorChannel, value);
+    TEST_ASSERT_NOT_EQUAL(0, result);
 
     uint8_t* buffer = lpp.getBuffer();
 
-    // Static expected scaled values
-    int32_t expectedScaledLat = 515074;
-    int32_t expectedScaledLon = -1279;
-    int32_t expectedScaledAlt = 3001;
+    // Assuming humidity is stored as a single byte representing the percentage times 2 for 0.5% resolution
+    uint16_t expectedValue = 755; // Convert to 0.5% increments
+    uint16_t actualValue = (buffer[3] << 8) | buffer[2]; // Adjust index based on how the data is actually stored
 
-    // Decode the stored values from the buffer
-    int32_t storedScaledLat, storedScaledLon, storedScaledAlt;
-    memcpy(&storedScaledLat, buffer + 2, sizeof(storedScaledLat)); 
-    memcpy(&storedScaledLon, buffer + 2 + sizeof(storedScaledLat), sizeof(storedScaledLon));
-    memcpy(&storedScaledAlt, buffer + 2 + sizeof(storedScaledLat) + sizeof(storedScaledLon), sizeof(storedScaledAlt));
-
-    // Verify the stored values match the expected static values
-    TEST_ASSERT_EQUAL_INT32(expectedScaledLat, storedScaledLat);
-    TEST_ASSERT_EQUAL_INT32(expectedScaledLon, storedScaledLon);
-    TEST_ASSERT_EQUAL_INT32(expectedScaledAlt, storedScaledAlt);
+    TEST_ASSERT_EQUAL_UINT16(expectedValue, actualValue);
 }
+
 
 void test_addAccelerometer(void) {
-    PAYLOAD_ENCODER::CayenneLPP<250> lpp(250); // Initialize with a buffer size
-    PAYLOAD_ENCODER::DATA_TYPES dataType = PAYLOAD_ENCODER::DATA_TYPES::ACCRM_SENS;
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 3;
+    float x = 1.23f, y = -2.34f, z = 3.45f; // Example accelerometer values in G
 
-    uint8_t sensorChannel = 1; // Example sensor channel
-    float x = 1.2306f, y = -2.34f, z = 3.45f;
+    uint8_t result = lpp.addAccelerometer(sensorChannel, x, y, z);
+    TEST_ASSERT_NOT_EQUAL(0, result);
 
-    // Adding accelerometer data
-    uint8_t result = lpp.addField(dataType, sensorChannel, x, y, z);
+    uint8_t* buffer = lpp.getBuffer();
+    int index = 2; // Start index for data
 
-    // Ensure data was added successfully
+    // Expected values after scaling and casting to int16_t
+    int16_t expectedValues[] = {
+        1230, // Convert G to milli-G
+        -2340,
+        3450
+    };
+
+    for (int i = 0; i < 3; i++) {
+        // Reconstruct each 16-bit value from the buffer and compare
+        int16_t actualValue = (static_cast<int16_t>(buffer[index+ 1]) << 8) | static_cast<int16_t>(buffer[index]);
+        TEST_ASSERT_EQUAL_INT16(expectedValues[i], actualValue);
+        index += 2; // Move to the next value
+    }
+}
+
+void test_addBarometer(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 4;
+    // Example barometric pressure in hPa, scaled by a factor (e.g., 10 for 0.1 hPa resolution)
+    float value = 1013.25f; 
+
+    uint8_t result = lpp.addBarometer(sensorChannel, value);
     TEST_ASSERT_NOT_EQUAL(0, result);
 
     uint8_t* buffer = lpp.getBuffer();
 
-    // Hardcoded expected scaled values
-    int16_t expectedScaledX = 1231;
-    int16_t expectedScaledY = -2340;
-    int16_t expectedScaledZ = 3450;
+    int index = 2; // Start index for data
 
-    // Decode the stored values from the buffer for comparison
-    int16_t storedScaledX, storedScaledY, storedScaledZ;
+    // Calculate the expected value after scaling and casting to int16_t
+    // This scaling factor must match the one used in your addBarometer implementation.
+    int16_t expectedValue = 10133; // Assuming 0.1 hPa resolution for this example
 
-    memcpy(&storedScaledX, buffer + 2, sizeof(storedScaledX)); 
-    memcpy(&storedScaledY, buffer + 2 + sizeof(storedScaledX), sizeof(storedScaledY));
-    memcpy(&storedScaledZ, buffer + 2 + sizeof(storedScaledX) + sizeof(storedScaledY), sizeof(storedScaledZ));
+    // Reconstruct the 16-bit value from the buffer
+    int16_t actualValue = (static_cast<int16_t>(buffer[index+1]) << 8) | static_cast<int16_t>(buffer[index]);
 
-    // Verify the stored values match the hardcoded expected scaled values
-    TEST_ASSERT_EQUAL_INT16(expectedScaledX, storedScaledX);
-    TEST_ASSERT_EQUAL_INT16(expectedScaledY, storedScaledY);
-    TEST_ASSERT_EQUAL_INT16(expectedScaledZ, storedScaledZ);
+    TEST_ASSERT_EQUAL_INT16(expectedValue, actualValue);
 }
 
-void test_addFieldImpl_Temperature(void) {
-    PAYLOAD_ENCODER::CayenneLPP<250> lpp(250); // Assuming a maximum buffer size of 250 bytes
-    uint8_t sensorChannel = 1; // Example sensor channel for temperature
-    float temperatureValue = 25.55f; // Example temperature value to add
+void test_addGyroscope(void) {
+    PAYLOAD_ENCODER::CayenneLPP<64> lpp(64);
+    uint8_t sensorChannel = 5;
+    // Example gyroscope values in degrees per second
+    float x = 0.123f, y = -0.234f, z = 0.345f;
 
-    // Expected scaled value (assuming the resolution for TEMP_SENS might be 10 for 0.1°C precision)
-    int16_t expectedScaledValue = 256;
-
-    // Add temperature data
-    uint8_t result = lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::TEMP_SENS, sensorChannel, temperatureValue);
-
-    // Verify that data was added to the buffer successfully
+    uint8_t result = lpp.addGyroscope(sensorChannel, x, y, z);
     TEST_ASSERT_NOT_EQUAL(0, result);
 
-    // Extract the stored scaled value from the buffer for comparison
-    int16_t storedScaledValue;
-    memcpy(&storedScaledValue, &lpp.getBuffer()[2], sizeof(storedScaledValue));
+    uint8_t* buffer = lpp.getBuffer();
 
-    // Verify the stored scaled value matches the expected scaled value
-    TEST_ASSERT_EQUAL_INT16(expectedScaledValue, storedScaledValue);
+    int index = 2; // Start index for data
+
+    // Assuming a resolution factor for the gyroscope; for example, 100 for 0.01 °/s precision
+    // This must match the implementation in addGyroscope
+    int16_t expectedX = 12;
+    int16_t expectedY = -23;
+    int16_t expectedZ = 35;
+
+    // Extract the gyroscope values from the buffer
+    int16_t actualX = (static_cast<int16_t>(buffer[index+1]) << 8) | static_cast<int16_t>(buffer[index]);
+    index += 2;
+    int16_t actualY = (static_cast<int16_t>(buffer[index+1]) << 8) | static_cast<int16_t>(buffer[index]);
+    index += 2;
+    int16_t actualZ = (static_cast<int16_t>(buffer[index+1]) << 8) | static_cast<int16_t>(buffer[index]);
+
+    TEST_ASSERT_EQUAL_INT16(expectedX, actualX);
+    TEST_ASSERT_EQUAL_INT16(expectedY, actualY);
+    TEST_ASSERT_EQUAL_INT16(expectedZ, actualZ);
 }
 
+void test_addGPSLocation(void) {
+    PAYLOAD_ENCODER::CayenneLPP<80> lpp(80);
+    uint8_t sensorChannel = 6;
+    // Example GPS coordinates
+    float lat = 51.5074f, lon = -0.1278f, alt = 30.0f;
 
-// // Test the reset function
-// void test_reset(void) {
-//     PAYLOAD_ENCODER::CayenneLPP<512> payload(100);
-//     payload.addDigitalInput(1, 255); // Add a sample digital input to change the state
-//     payload.reset(); // Reset the payload
-//     TEST_ASSERT_EQUAL_UINT8(0, payload.getSize()); // Expect currentIndex to be 0 after reset
-// }
+    uint8_t result = lpp.addGPSLocation(sensorChannel, lat, lon, alt);
+    TEST_ASSERT_NOT_EQUAL(0, result);
 
-// // Test the getSize function
-// void test_getSize(void) {
-//     PAYLOAD_ENCODER::CayenneLPP<512> payload(100);
-//     TEST_ASSERT_EQUAL_UINT8(0, payload.getSize()); // Initially, size should be 0
-//     payload.addDigitalInput(1, 255);
-//     TEST_ASSERT_EQUAL_UINT8(3, payload.getSize()); // Size should reflect added data
-// }
+    uint8_t* buffer = lpp.getBuffer();
+    int index = 2; // Start index for data
 
-// // Test adding a digital input
-// void test_addDigitalInput(void) {
-//     PAYLOAD_ENCODER::CayenneLPP<512> payload(100);
-//     uint8_t size = payload.addDigitalInput(1, 255);
-//     TEST_ASSERT_EQUAL_UINT8(3, size); // Expect size to increase by the size of the digital input data
-//     const uint8_t* buffer = payload.getBuffer();
-//     TEST_ASSERT_EQUAL_UINT8(1, buffer[0]); // Channel
-//     TEST_ASSERT_EQUAL_UINT8(DATA_TYPES::DIG_IN, buffer[1]); // Data type
-//     TEST_ASSERT_EQUAL_UINT8(255, buffer[2]); // Value
-// }
+    // Assuming resolution factors: 0.0001 for lat/lon and 0.01 for altitude
+    int32_t expectedLat = 515074;
+    int32_t expectedLon = -1278;
+    int32_t expectedAlt = 3000; // Assuming altitude is in centimeters in the buffer
 
-int main(int argc, char **argv)
-{
+    // Extract each value from the buffer and compare
+    int32_t storedScaledLat, storedScaledLon, storedScaledAlt;
+    memcpy(&storedScaledLat, buffer + 2, sizeof(storedScaledLat)); 
+    memcpy(&storedScaledLon, buffer + 2 + sizeof(storedScaledLat), sizeof(storedScaledLon));
+    memcpy(&storedScaledAlt, buffer + 2 + sizeof(storedScaledLat) + sizeof(storedScaledLon), sizeof(storedScaledAlt));
+
+    // Verify the stored values match the expected static values
+    TEST_ASSERT_EQUAL_INT32(expectedScaledLat, storedScaledLat);
+    TEST_ASSERT_EQUAL_INT32(expectedScaledLon, storedScaledLon);
+    TEST_ASSERT_EQUAL_INT32(expectedScaledAlt, storedScaledAlt);
+}
+
+// Main function to run the tests
+int main(void) {
     UNITY_BEGIN();
-    RUN_TEST(test_addFieldImpl_GPSData);
-    RUN_TEST(test_addFieldImpl_GPSData_highPrecision);
+    RUN_TEST(test_addDigitalInput);
+    RUN_TEST(test_addDigitalOutput);
+    RUN_TEST(test_addAnalogInput);
+    RUN_TEST(test_addAnalogOutput); 
+    RUN_TEST(test_addIllumination);
+    RUN_TEST(test_addPresence);
+    RUN_TEST(test_addTemperature);
+    RUN_TEST(test_addHumidity);
     RUN_TEST(test_addAccelerometer);
-    RUN_TEST(test_addFieldImpl_Temperature);
+    RUN_TEST(test_addBarometer);
+    RUN_TEST(test_addGyroscope);
+    RUN_TEST(test_addGPSLocation);
+    // Add RUN_TEST for other tests here
     UNITY_END();
-    return 0;
 }
