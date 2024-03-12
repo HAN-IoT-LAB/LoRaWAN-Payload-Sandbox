@@ -10,14 +10,6 @@
  *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
  */
 
 #ifndef CAYENNE_REFERENCES_HPP
@@ -27,6 +19,9 @@
 
 namespace PAYLOAD_ENCODER
 {
+    /**
+     * @brief Enum class defining data types for Cayenne LPP.
+     */
     enum class DATA_TYPES : uint8_t
     {
         DIG_IN = 0,       /* DIGITAL INPUT */
@@ -43,6 +38,9 @@ namespace PAYLOAD_ENCODER
         GPS_LOC = 136     /* GPS LOCATION METER */
     };
 
+    /**
+     * @brief Enum class defining sizes of data types for Cayenne LPP.
+     */
     enum class DATA_TYPES_SIZES : size_t
     {
         DIG_IN = 1,     /* 1 bit resolution */
@@ -61,6 +59,11 @@ namespace PAYLOAD_ENCODER
                          * Altitude  : 0.01 meter Signed MSB */
     };
 
+    /**
+     * @brief Function to get the resolution for floating point data types.
+     * @param dataType The data type.
+     * @return The resolution of the data type.
+     */
     static const uint16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType) {
         switch (dataType)
         {
@@ -94,8 +97,11 @@ namespace PAYLOAD_ENCODER
         return 0;
     }
 
-    // Function to create a mapping between data types reference and respective size in bytes;
-    static const size_t getDataTypeSize(DATA_TYPES dataType)
+    /**
+     * @brief Function to create a mapping between data types reference and respective size in bytes.
+     * @param dataType The data type.
+     * @return The size of the data type in bytes.
+     */    static const size_t getDataTypeSize(DATA_TYPES dataType)
     {
         switch (dataType)
         {
