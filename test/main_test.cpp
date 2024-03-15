@@ -154,7 +154,6 @@ void test_addHumidity(void) {
     TEST_ASSERT_EQUAL_UINT8(4, lpp.getSize());
 }
 
-
 void test_addAccelerometer(void) {
     PAYLOAD_ENCODER::CayenneLPP<BUF_DEFAULT> lpp(BUF_DEFAULT);
     uint8_t sensorChannel = 3;
@@ -208,7 +207,7 @@ void test_addBarometer(void) {
 
 void test_addGyroscope(void) {
     PAYLOAD_ENCODER::CayenneLPP<BUF_DEFAULT> lpp(BUF_DEFAULT);
-    uint8_t sensorChannel = 5;
+    const uint8_t sensorChannel = 5;
     // Example gyroscope values in degrees per second
     float x = 0.123f, y = -0.234f, z = 0.345f;
 

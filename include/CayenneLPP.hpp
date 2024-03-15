@@ -442,7 +442,7 @@ namespace PAYLOAD_ENCODER
             const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
             int16_t scaledValue = round_and_cast_int16(value * resolution);
             if (!checkCapacity(4))
-                return 0;
+                return 0;   
             appendHeader(dataType, sensorChannel);
             appendData(scaledValue);
             return currentIndex;

@@ -44,7 +44,7 @@ namespace PAYLOAD_ENCODER
         ILLUM_SENS  = 2,    /* 1 Lux Unsigned MSB */
         PRSNC_SENS  = 1,    /* 1 bit resolution */
         TEMP_SENS   = 2,    /* 0.1 °C Signed MSB */
-        HUM_SENS    = 1,    /* 0.5 % Unsigned */
+        HUM_SENS    = 1,    /* 0.1 % Unsigned */
         ACCRM_SENS  = 6,    /* 0.001 G Signed MSB per axis */
         BARO_SENS   = 2,    /* 0.1 hPa Unsigned MSB */
         GYRO_SENS   = 6,    /* 0.01 °/s Signed MSB per axis */
@@ -66,26 +66,26 @@ namespace PAYLOAD_ENCODER
             break;
         case DATA_TYPES::DIG_OUT:
             break;
-        case DATA_TYPES::ANL_IN:
-            return 100;
+        case DATA_TYPES::ANL_IN:    
+            return 100;                 // 0.01 Signed Resolution.
         case DATA_TYPES::ANL_OUT:
-            return 100;
+            return 100;                 // 0.01 Signed Resolution.
         case DATA_TYPES::ILLUM_SENS:
             break;
         case DATA_TYPES::PRSNC_SENS:
             break;
         case DATA_TYPES::TEMP_SENS:
-            return 10;
+            return 10;                  // 0.1 °C Signed MSB Resolution.
         case DATA_TYPES::HUM_SENS:
-            return 10;
+            return 10;                  // 0.1 % Unsigned Resolution                       
         case DATA_TYPES::ACCRM_SENS:
-            return 1000;
+            return 1000;                // 0.001 G Signed MSB per axis
         case DATA_TYPES::BARO_SENS:
-            return 10;
+            return 10;                  // 0.1 hPa Unsigned MSB
         case DATA_TYPES::GYRO_SENS:
-            return 100;
+            return 100;                 // 0.01 °/s Signed MSB per axis
         case DATA_TYPES::GPS_LOC:
-            return 10000;
+            return 10000;               // 0.0001° Signed MSB for Lat- & Longitude
         default:
             return 0;
         }
