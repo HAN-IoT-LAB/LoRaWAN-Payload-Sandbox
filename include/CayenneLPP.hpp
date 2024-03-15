@@ -330,7 +330,7 @@ namespace PAYLOAD_ENCODER
                 return static_cast<int16_t>(value - 0.5f);
             }
         }
-
+        
         /**
          * @brief Checks if there is enough space in the buffer to append new data.
          * 
@@ -440,7 +440,7 @@ namespace PAYLOAD_ENCODER
         const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, const float value)
         {
             const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
-            int16_t scaledValue = round_and_cast_int16(value * resolution);
+            const int16_t scaledValue = round_and_cast_int16(value * resolution);
             if (!checkCapacity(4))
                 return 0;   
             appendHeader(dataType, sensorChannel);
