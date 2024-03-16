@@ -12,8 +12,6 @@
 #include <stdint.h>
 #include "CayenneReferences.hpp"
 
-#define PAYLOAD_BUFFER_MAX 0xFF
-
 namespace PAYLOAD_ENCODER
 {
     /**
@@ -30,19 +28,52 @@ namespace PAYLOAD_ENCODER
          *
          * @param size Size of the buffer.
          */
-        explicit CayenneLPP(uint8_t size) : operationalSize(size > MaxSize ? MaxSize : size)
+        explicit CayenneLPP(const uint8_t size) : operationalSize(size > MaxSize ? MaxSize : size), currentIndex(0) 
         {
-            buffer = new uint8_t[operationalSize]; // Dynamic Buffer Allocation.
-            currentIndex = 0;                      // Initialize at construction.
+            for(size_t i = 0; i < MaxSize; i++) {
+                buffer[i] = 0;
+            }
+        }
+
+        /**
+         * @brief Copy constructor for the CayenneLPP class.
+         *
+         * Initializes a new instance of the CayenneLPP class by deep copying the contents
+         * from another instance. This includes copying the operational size, current index,
+         * and the contents of the data buffer up to the current index. The purpose of this
+         * constructor is to create a new object with the same state as the object passed as a parameter.
+         *
+         * @param other The CayenneLPP instance from which to copy.
+         */
+        CayenneLPP(const CayenneLPP& other) : operationalSize(other.operationalSize), currentIndex(other.currentIndex)
+        {
+            for(size_t i = 0; i < currentIndex; ++i)
+            {
+                buffer[i] = other.buffer[i];
+            }
+        }
+
+        /**
+         * @brief Copy assignment operator for the CayenneLPP class.
+         *
+         * Replaces the contents of this instance with a copy of the contents of another
+         * instance.
+         *
+         * @param other The CayenneLPP instance to assign from.
+         * @return CayenneLPP& A reference to this instance after copying.
+         */
+        CayenneLPP& operator=(const CayenneLPP& other) {
+            if (this != &other) {
+                currentIndex = other.currentIndex;
+                memcpyAVR(buffer, other.getBuffer(), currentIndex);
+            }
+            return *this;
         }
 
         /**
          * @brief Destructor for CayenneLPP.
          */
-        ~CayenneLPP()
-        {
-            delete[] buffer; // Give the Allocated Memory back, to avoid leaks.
-        };
+        ~CayenneLPP() {}
 
         /* REQUIRED FUNCTIONS by ASSIGNMENT #1 */
         /**
@@ -68,7 +99,7 @@ namespace PAYLOAD_ENCODER
          *
          * @return const uint8_t* Pointer to the buffer.
          */
-        uint8_t *getBuffer(void)
+        const uint8_t *getBuffer(void) const
         {
             return buffer;
         }
@@ -100,7 +131,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addDigitalInput(const uint8_t sensorChannel, const uint8_t value)
         {
-            return addFieldImpl(DATA_TYPES::DIG_IN, sensorChannel, value);
+            return addField(DATA_TYPES::DIG_IN, sensorChannel, value);
         }
 
         /**
@@ -112,7 +143,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addDigitalOutput(const uint8_t sensorChannel, const uint8_t value)
         {
-            return addFieldImpl(DATA_TYPES::DIG_OUT, sensorChannel, value);
+            return addField(DATA_TYPES::DIG_OUT, sensorChannel, value);
         }
 
         /**
@@ -125,7 +156,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addAnalogInput(const uint8_t sensorChannel, const float value)
         {
-            return addFieldImpl(DATA_TYPES::ANL_IN, sensorChannel, value);
+            return addField(DATA_TYPES::ANL_IN, sensorChannel, value);
         }
 
         /**
@@ -138,7 +169,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addAnalogOutput(const uint8_t sensorChannel, const float value)
         {
-            return addFieldImpl(DATA_TYPES::ANL_OUT, sensorChannel, value);
+            return addField(DATA_TYPES::ANL_OUT, sensorChannel, value);
         }
 
         /**
@@ -153,7 +184,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addIllumination(const uint8_t sensorChannel, const uint16_t value)
         {
-            return addFieldImpl(DATA_TYPES::ILLUM_SENS, sensorChannel, value);
+            return addField(DATA_TYPES::ILLUM_SENS, sensorChannel, value);
         }
 
         /**
@@ -168,7 +199,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addPresence(const uint8_t sensorChannel, const uint8_t value)
         {
-            return addFieldImpl(DATA_TYPES::PRSNC_SENS, sensorChannel, value);
+            return addField(DATA_TYPES::PRSNC_SENS, sensorChannel, value);
         }
 
         /**
@@ -183,7 +214,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addTemperature(const uint8_t sensorChannel, const float value)
         {
-            return addFieldImpl(DATA_TYPES::TEMP_SENS, sensorChannel, value);
+            return addField(DATA_TYPES::TEMP_SENS, sensorChannel, value);
         }
 
         /**
@@ -201,7 +232,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addHumidity(const uint8_t sensorChannel, const float value)
         {
-            return addFieldImpl(DATA_TYPES::HUM_SENS, sensorChannel, value);
+            return addField(DATA_TYPES::HUM_SENS, sensorChannel, value);
         }
 
         /**
@@ -220,7 +251,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addAccelerometer(const uint8_t sensorChannel, const float x, const float y, const float z)
         {
-            return addFieldImpl(DATA_TYPES::ACCRM_SENS, sensorChannel, x, y, z);
+            return addField(DATA_TYPES::ACCRM_SENS, sensorChannel, x, y, z);
         }
 
         /**
@@ -238,7 +269,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addBarometer(const uint8_t sensorChannel, const float value)
         {
-            return addFieldImpl(DATA_TYPES::BARO_SENS, sensorChannel, value);
+            return addField(DATA_TYPES::BARO_SENS, sensorChannel, value);
         }
 
         /**
@@ -257,7 +288,7 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addGyroscope(const uint8_t sensorChannel, const float x, const float y, const float z)
         {
-            return addFieldImpl(DATA_TYPES::GYRO_SENS, sensorChannel, x, y, z);
+            return addField(DATA_TYPES::GYRO_SENS, sensorChannel, x, y, z);
         }
 
         /**
@@ -276,11 +307,11 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addGPSLocation(uint8_t sensorChannel, const float lat, const float lon, const float alt)
         {
-            return addFieldImpl(DATA_TYPES::GPS_LOC, sensorChannel, lat, lon, alt);
+            return addField(DATA_TYPES::GPS_LOC, sensorChannel, lat, lon, alt);
         }
 
     private:
-        uint8_t *buffer;
+        uint8_t buffer[MaxSize];
         size_t operationalSize;
         size_t currentIndex;
 
@@ -295,7 +326,7 @@ namespace PAYLOAD_ENCODER
          * @param value The floating-point value to be rounded and cast.
          * @return int32_t The rounded value, cast to an int32_t.
          */
-        static inline int32_t round_and_cast(const float value)
+        const static inline int32_t round_and_cast(const float value)
         {
             if (value > 0)
             {
@@ -319,7 +350,7 @@ namespace PAYLOAD_ENCODER
          * @param value The floating-point value to be rounded and cast.
          * @return int16_t The rounded value, cast to an int16_t.
          */
-        static inline int16_t round_and_cast_int16(const float value)
+        const static inline int16_t round_and_cast_int16(const float value)
         {
             if (value > 0)
             {
@@ -330,7 +361,7 @@ namespace PAYLOAD_ENCODER
                 return static_cast<int16_t>(value - 0.5f);
             }
         }
-        
+
         /**
          * @brief Checks if there is enough space in the buffer to append new data.
          * 
@@ -440,9 +471,9 @@ namespace PAYLOAD_ENCODER
         const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, const float value)
         {
             const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
-            const int16_t scaledValue = round_and_cast_int16(value * resolution);
+            int16_t scaledValue = round_and_cast_int16(value * resolution);
             if (!checkCapacity(4))
-                return 0;   
+                return 0;
             appendHeader(dataType, sensorChannel);
             appendData(scaledValue);
             return currentIndex;
@@ -521,10 +552,10 @@ namespace PAYLOAD_ENCODER
          * @param src Pointer to the source of data to be copied.
          * @param n Number of bytes to be copied.
          */
-        void memcpyAVR(void *dest, const void *src, size_t n)
+        static inline void memcpyAVR(void *dest, const void *src, const size_t n)
         {
-            char *cdest = (char *)dest;
-            const char *csrc = (const char *)src;
+            uint8_t *cdest = static_cast<uint8_t*>(dest);
+            const uint8_t *csrc = static_cast<const uint8_t*>(src);
             for (size_t i = 0; i < n; ++i)
             {
                 cdest[i] = csrc[i];

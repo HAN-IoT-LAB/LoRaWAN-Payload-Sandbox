@@ -15,10 +15,7 @@
 #include <Wire.h>
 
 #include <main.hpp>
-#include <CayenneLPP.h>
 #include <SparkFun_Si7021_Breakout_Library.h>
-
-#include "../../include/CayenneLPP.hpp"
 
 /* DEVICE CONFIGURATION */
 #define loraSerial      Serial1

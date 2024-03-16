@@ -52,13 +52,13 @@ namespace PAYLOAD_ENCODER
                              * Longitude : 0.0001° Signed MSB
                              * Altitude  : 0.01 meter Signed MSB */
     };
-
+    
     /**
      * @brief Function to get the resolution for floating point data types.
      * @param dataType The data type.
      * @return The resolution of the data type.
      */
-    static const uint16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType)
+    const static inline uint16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType)
     {
         switch (dataType)
         {
@@ -97,7 +97,7 @@ namespace PAYLOAD_ENCODER
      * @param dataType The data type.
      * @return The size of the data type in bytes.
      */
-    static const size_t getDataTypeSize(DATA_TYPES dataType)
+    const static inline size_t getDataTypeSize(DATA_TYPES dataType)
     {
         switch (dataType)
         {
@@ -136,9 +136,9 @@ namespace PAYLOAD_ENCODER
      */
     enum class ERROR_TYPES : uint8_t
     {
-        LPP_ERROR_OVERFLOW = 0,    /**< No error */
-        LPP_ERROR_UNKOWN_TYPE = 1, /**< Buffer overflow */
-        LPP_ERROR_OK = 2           /**< Unknown data type */
+        LPP_ERROR_OVERFLOW      = 0,    /**< No error */
+        LPP_ERROR_UNKOWN_TYPE   = 1,    /**< Buffer overflow */
+        LPP_ERROR_OK            = 2     /**< Unknown data type */
     };
 
 } // End of PAYLOAD_ENCODER Namespace.

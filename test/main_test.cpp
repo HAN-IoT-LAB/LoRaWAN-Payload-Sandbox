@@ -22,7 +22,7 @@ void test_addDigitalInput(void) {
     uint8_t value = 8; 
 
     uint8_t result = lpp.addDigitalInput(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     TEST_ASSERT_NOT_EQUAL(0, result);
     TEST_ASSERT_EQUAL_UINT8(static_cast<uint8_t>(PAYLOAD_ENCODER::DATA_TYPES::DIG_IN), buffer[0]);
@@ -37,7 +37,7 @@ void test_addDigitalOutput_bool(void) {
     bool value = true; // Digital output value to add (false)
 
     uint8_t result = lpp.addDigitalOutput(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
     auto flag = buffer[2];
 
     TEST_ASSERT_NOT_EQUAL(0, result);
@@ -52,7 +52,7 @@ void test_addDigitalOutput(void) {
     uint8_t value = 50; // Digital output value to add (false)
 
     uint8_t result = lpp.addDigitalOutput(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     TEST_ASSERT_NOT_EQUAL(0, result);
     TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::DATA_TYPES::DIG_OUT, buffer[0]);
@@ -66,7 +66,7 @@ void test_addAnalogInput(void) {
     const float value = 3.3f; // Will become 330 Real fixed Number. (2decimal precision)
 
     const uint8_t result = lpp.addAnalogInput(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     TEST_ASSERT_NOT_EQUAL(0, result);
     TEST_ASSERT_EQUAL_UINT8(static_cast<uint8_t>(PAYLOAD_ENCODER::DATA_TYPES::ANL_IN), buffer[0]);
@@ -81,7 +81,7 @@ void test_addAnalogOutput(void) {
     float value = 2.2f;
 
     uint8_t result = lpp.addAnalogOutput(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     TEST_ASSERT_NOT_EQUAL(0, result);
     TEST_ASSERT_EQUAL_UINT8(static_cast<uint8_t>(PAYLOAD_ENCODER::DATA_TYPES::ANL_OUT), buffer[0]);
@@ -95,7 +95,7 @@ void test_addIllumination(void) {
     uint16_t value = 550; // Example illumination value in lux
 
     uint8_t result = lpp.addIllumination(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
    
     TEST_ASSERT_NOT_EQUAL(0, result);
     TEST_ASSERT_EQUAL_UINT8(static_cast<uint8_t>(PAYLOAD_ENCODER::DATA_TYPES::ILLUM_SENS), buffer[0]);
@@ -111,7 +111,7 @@ void test_addPresence(void) {
     uint8_t value = 1; // Presence detected
 
     uint8_t result = lpp.addPresence(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     TEST_ASSERT_NOT_EQUAL(0, result);
     TEST_ASSERT_EQUAL_UINT8(static_cast<uint8_t>(PAYLOAD_ENCODER::DATA_TYPES::PRSNC_SENS), buffer[0]);
@@ -125,7 +125,7 @@ void test_addTemperature(void) {
     float value = 25.5f; // Example temperature value in Celsius
 
     uint8_t result = lpp.addTemperature(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     TEST_ASSERT_NOT_EQUAL(0, result);
     TEST_ASSERT_EQUAL_UINT8(static_cast<uint8_t>(PAYLOAD_ENCODER::DATA_TYPES::TEMP_SENS), buffer[0]);
@@ -142,7 +142,7 @@ void test_addHumidity(void) {
     float value = 75.55f; // Example humidity value in percentage
 
     uint8_t result = lpp.addHumidity(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     uint16_t expectedValue = 756; // Convert to 0.5% increments
     uint16_t actualValue = (buffer[3] << 8) | buffer[2];
@@ -160,7 +160,7 @@ void test_addAccelerometer(void) {
     float x = 1.23f, y = -2.34f, z = 3.45f; // Example accelerometer values in G
 
     uint8_t result = lpp.addAccelerometer(sensorChannel, x, y, z);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     int index = 2; // Start index for data
 
@@ -173,7 +173,7 @@ void test_addAccelerometer(void) {
 
     for (int i = 0; i < 3; i++) {
         // Reconstruct each 16-bit value from the buffer and compare
-        int16_t actualValue = (static_cast<int16_t>(buffer[index+ 1]) << 8) | static_cast<int16_t>(buffer[index]);
+        int16_t actualValue = (static_cast<int16_t>(buffer[index+1]) << 8) | static_cast<int16_t>(buffer[index]);
         TEST_ASSERT_EQUAL_INT16(expectedValues[i], actualValue);
         index += 2; // Move to the next value
     }
@@ -190,7 +190,7 @@ void test_addBarometer(void) {
     float value = 1013.25f; 
 
     uint8_t result = lpp.addBarometer(sensorChannel, value);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
 
     int index = 2;
     int16_t expectedValue = 10133;
@@ -212,7 +212,7 @@ void test_addGyroscope(void) {
     float x = 0.123f, y = -0.234f, z = 0.345f;
 
     uint8_t result = lpp.addGyroscope(sensorChannel, x, y, z);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
     int index = 2; // Start index for data
 
     int16_t expectedX = 12;
@@ -242,7 +242,7 @@ void test_addGPSLocation(void) {
     float lat = 51.5074f, lon = -0.1278f, alt = 30.0f;
 
     uint8_t result = lpp.addGPSLocation(sensorChannel, lat, lon, alt);
-    uint8_t* buffer = lpp.getBuffer();
+    const uint8_t* buffer = lpp.getBuffer();
     int index = 2; // Start index for data
 
     // resolution factors: 0.0001 for lat/lon and 0.01 for altitude
@@ -265,6 +265,49 @@ void test_addGPSLocation(void) {
     TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::getDataTypeSize(PAYLOAD_ENCODER::DATA_TYPES::GPS_LOC) + 2, lpp.getSize());
 }
 
+void test_CayenneLPP_CopyAssignment(void) {
+    PAYLOAD_ENCODER::CayenneLPP<128> source(128);
+    uint8_t sensorChannel = 6;
+    float lat = 51.5074f, lon = -0.1278f, alt = 30.0f;
+
+    source.addTemperature(1, 25.5);
+    source.addGPSLocation(sensorChannel, lat, lon, alt);
+    
+    PAYLOAD_ENCODER::CayenneLPP<128> target(128);
+    
+    target = source;  
+    const uint8_t* sourceBuffer = source.getBuffer();
+    const uint8_t* targetBuffer = target.getBuffer();
+
+    TEST_ASSERT_EQUAL(source.getSize(), target.getSize()); 
+    for (size_t i = 0; i < source.getSize(); i++) {
+        TEST_ASSERT_EQUAL_UINT8(sourceBuffer[i], targetBuffer[i]);
+    }
+}
+
+void test_CopyToValidBuffer(void) {
+    PAYLOAD_ENCODER::CayenneLPP<128> lpp(128);
+    lpp.addTemperature(1, 25.5);
+    uint8_t destBuffer[128];
+    uint8_t expectedBytes = lpp.getSize();
+
+    uint8_t copiedBytes = lpp.copy(destBuffer); 
+
+    TEST_ASSERT_EQUAL_UINT8(expectedBytes, copiedBytes);
+    for (uint8_t i = 0; i < copiedBytes; i++) {
+        TEST_ASSERT_EQUAL_UINT8(lpp.getBuffer()[i], destBuffer[i]);
+    }
+}
+
+void test_CopyToNullBuffer(void) {
+    PAYLOAD_ENCODER::CayenneLPP<128> lpp(128);
+    lpp.addHumidity(2, 75.0);
+
+    uint8_t copiedBytes = lpp.copy(nullptr);
+
+    TEST_ASSERT_EQUAL_UINT8(0, copiedBytes);
+}
+
 // Main function
 int main(void) {
     UNITY_BEGIN();
@@ -281,5 +324,8 @@ int main(void) {
     RUN_TEST(test_addBarometer);
     RUN_TEST(test_addGyroscope);
     RUN_TEST(test_addGPSLocation);
+    RUN_TEST(test_CayenneLPP_CopyAssignment);
+    RUN_TEST(test_CopyToValidBuffer);
+    RUN_TEST(test_CopyToNullBuffer);
     UNITY_END();
 }
