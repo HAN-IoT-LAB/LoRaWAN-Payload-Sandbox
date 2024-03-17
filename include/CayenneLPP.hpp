@@ -426,8 +426,9 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, const uint8_t value)
         {
-            if (!checkCapacity(3))
+            if (!checkCapacity(3)) {
                 return 0;
+            }
             appendHeader(dataType, sensorChannel);
             buffer[currentIndex++] = value;
             return currentIndex;
@@ -448,8 +449,9 @@ namespace PAYLOAD_ENCODER
          */
         const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, const uint16_t value)
         {
-            if (!checkCapacity(4))
+            if (!checkCapacity(4)) {
                 return 0;
+            }
             appendHeader(dataType, sensorChannel);
             appendData(value);
             return currentIndex;
@@ -472,8 +474,9 @@ namespace PAYLOAD_ENCODER
         {
             const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
             int16_t scaledValue = round_and_cast_int16(value * resolution);
-            if (!checkCapacity(4))
+            if (!checkCapacity(4)) {
                 return 0;
+            }
             appendHeader(dataType, sensorChannel);
             appendData(scaledValue);
             return currentIndex;
@@ -556,7 +559,7 @@ namespace PAYLOAD_ENCODER
         {
             uint8_t *cdest = static_cast<uint8_t*>(dest);
             const uint8_t *csrc = static_cast<const uint8_t*>(src);
-            for (size_t i = 0; i < n; ++i)
+            for (size_t i = 0; i < n; i++)
             {
                 cdest[i] = csrc[i];
             }

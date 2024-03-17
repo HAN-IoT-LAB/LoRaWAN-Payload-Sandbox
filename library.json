@@ -23,7 +23,8 @@
   "export": {
     "exclude": [
       "test/*",
-      "lib/*"
+      "lib/*",
+      "src/*"
     ]
   },
   "license": "MIT",
