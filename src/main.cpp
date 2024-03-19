@@ -92,25 +92,18 @@ void loop() {
 
 #ifdef CAYENNELPP_NEW
     lpp.reset();    // reset cayenne object
-    // lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::TEMP_SENS, static_cast<uint8_t>(NodeSensors::LPP_CH_TEMPERATURE), temperature);
-    // lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::HUM_SENS, static_cast<uint8_t>(NodeSensors::LPP_CH_HUMIDITY), humidity);
-    // lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::ILLUM_SENS, static_cast<uint8_t>(NodeSensors::LPP_CH_LUMINOSITY), luminosity);
-    // lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::DIG_IN, static_cast<uint8_t>(NodeSensors::LPP_CH_ROTARYSWITCH), rotaryPosition);
-    // lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::ACCRM_SENS, static_cast<uint8_t>(NodeSensors::LPP_CH_ACCELEROMETER), x, y, z);
-    // lpp.addField(PAYLOAD_ENCODER::DATA_TYPES::ANL_IN, static_cast<uint8_t>(NodeSensors::LPP_CH_BOARDVCCVOLTAGE), vdd);
-
+    lpp.addDigitalInput(static_cast<uint8_t>(NodeSensors::LPP_CH_ROTARYSWITCH), rotaryPosition);
     lpp.addTemperature(static_cast<uint8_t>(NodeSensors::LPP_CH_TEMPERATURE), temperature);
     lpp.addHumidity(static_cast<uint8_t>(NodeSensors::LPP_CH_HUMIDITY), humidity);
     lpp.addIllumination(static_cast<uint8_t>(NodeSensors::LPP_CH_LUMINOSITY), luminosity);
-    lpp.addDigitalInput(static_cast<uint8_t>(NodeSensors::LPP_CH_ROTARYSWITCH), rotaryPosition);
     lpp.addAccelerometer(static_cast<uint8_t>(NodeSensors::LPP_CH_ACCELEROMETER), x, y, z);
     lpp.addAnalogInput(static_cast<uint8_t>(NodeSensors::LPP_CH_BOARDVCCVOLTAGE), vdd);
 #endif
 
     digitalWrite(LED_LORA, LOW); // switch LED_LORA LED on
-
     ttn.sendBytes(lpp.getBuffer(), lpp.getSize(), APPLICATION_FPORT_CAYENNE, false, SF);
     digitalWrite(LED_LORA, HIGH); // switch LED_LORA LED off
+    delay(50000);
 }
 
 void message(const uint8_t *payload, size_t size, port_t port)
