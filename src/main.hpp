@@ -30,11 +30,12 @@
 #define LORA_BAUD_RATE 57600
 /* DEBUG CONFIG */
 #define DEBUG_BAUD_RATE 9600
-#define DEBUG 0
+#define DEBUG 1
 
 #if DEBUG
 #define DEBUG_SERIAL_BEGIN() debugSerial.begin(DEBUG_BAUD_RATE)
 #define DEBUG_MSG(x) debugSerial.print(x)
+
 #define DEBUG_MSG_LN(x) debugSerial.println(x)
 #else
 #define DEBUG_SERIAL_BEGIN()

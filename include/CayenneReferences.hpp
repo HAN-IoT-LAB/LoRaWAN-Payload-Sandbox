@@ -44,7 +44,7 @@ namespace PAYLOAD_ENCODER
         ILLUM_SENS  = 2,    /* 1 Lux Unsigned MSB */
         PRSNC_SENS  = 1,    /* 1 bit resolution */
         TEMP_SENS   = 2,    /* 0.1 °C Signed MSB */
-        HUM_SENS    = 1,    /* 0.1 % Unsigned */
+        HUM_SENS    = 2,    /* 0.1 % Unsigned */
         ACCRM_SENS  = 6,    /* 0.001 G Signed MSB per axis */
         BARO_SENS   = 2,    /* 0.1 hPa Unsigned MSB */
         GYRO_SENS   = 6,    /* 0.01 °/s Signed MSB per axis */
@@ -58,7 +58,7 @@ namespace PAYLOAD_ENCODER
      * @param dataType The data type.
      * @return The resolution of the data type.
      */
-    const static inline uint16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType)
+    const static inline int16_t FLOATING_DATA_RESOLUTION(DATA_TYPES dataType)
     {
         switch (dataType)
         {

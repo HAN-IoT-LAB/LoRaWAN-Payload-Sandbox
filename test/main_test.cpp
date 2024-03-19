@@ -122,7 +122,7 @@ void test_addPresence(void) {
 void test_addTemperature(void) {
     PAYLOAD_ENCODER::CayenneLPP<BUF_DEFAULT> lpp(BUF_DEFAULT);
     uint8_t sensorChannel = 102;
-    float value = 25.5f; // Example temperature value in Celsius
+    float value = 25.5321f; // Example temperature value in Celsius
 
     uint8_t result = lpp.addTemperature(sensorChannel, value);
     const uint8_t* buffer = lpp.getBuffer();
