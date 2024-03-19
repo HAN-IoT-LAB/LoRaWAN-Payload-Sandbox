@@ -8,7 +8,7 @@ This tailored adaptation aims to provide a robust foundation for projects operat
 ## How to use
 
 ## Performance upgrade
-The payload encoder has been enhanced to 400 bits less than the original encoder
+The payload encoder has been enhanced to 400 bytes less than the original encoder
 
 ## License
 This repository's code has a Creative Commons Attribution-NonCommercial 4.0 International License, any other documentation is copyrighted by the authors.  
