@@ -5,6 +5,11 @@ This repository hosts a header-only arduino library, representing an enhanced ve
 
 This tailored adaptation aims to provide a robust foundation for projects operating in these domains, facilitating a seamless integration and a more efficient deployment process. 
 
+## How to use
+
+## Performance upgrade
+The payload encoder has been enhanced to 400 bits less than the original encoder
+
 ## License
 This repository's code has a Creative Commons Attribution-NonCommercial 4.0 International License, any other documentation is copyrighted by the authors.  
 
