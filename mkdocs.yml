@@ -35,5 +35,7 @@ nav:
     - src types: Doxygen\_cayenne_references_8hpp_source.md
   - Unit Testing: Unit_tests_overview.md
   - Decoder: TTN_decoder.md
+  - README: 'cp_README.md'
+
 copyright:
   Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
