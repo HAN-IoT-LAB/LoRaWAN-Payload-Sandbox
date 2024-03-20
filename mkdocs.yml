@@ -2,8 +2,6 @@ site_name: HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
 
 theme:
   name: material
-  logo: images/logo.png
-  favicon: images/LoRaWAN_Logo_DALLE.ico
   palette:
     primary: 'blue grey'
     accent: 'orange'
@@ -15,7 +13,9 @@ plugins:
   - mkdoxy:
       projects:
         Doxygen:
-          src-dirs: include/
+          src-dirs: 
+            include/
+            test/
           full-doc: True
           doxy-cfg:
             FILE_PATTERNS: "*.cpp *.hpp"
@@ -29,6 +29,11 @@ nav:
     - 'Classes': 'Doxygen/classes.md'
     - 'Hierarchy': 'Doxygen/hierarchy.md'
     - 'Files': 'Doxygen/files.md'
-
+    - header: Doxygen\_cayenne_l_p_p_8hpp.md
+    - src: Doxygen\_cayenne_l_p_p_8hpp_source.md
+    - header types: Doxygen\_cayenne_references_8hpp.md
+    - src types: Doxygen\_cayenne_references_8hpp_source.md
+  - Unit Testing: Unit_tests_overview.md
+  - Decoder: TTN_decoder.md
 copyright:
   Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
