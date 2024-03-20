@@ -1,0 +1,933 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>Class PAYLOAD_ENCODER::CayenneLPP - HAN-IoT-LAB2324 | LoRaWAN Payload Encoder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-payload_encodercayennelpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-header__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class PAYLOAD_ENCODER::CayenneLPP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-nav__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CayenneLPP_page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CayenneLPP Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Doxygen Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Doxygen Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Namespaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hierarchy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_l_p_p_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_l_p_p_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_references_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_references_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unit_tests_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TTN_decoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decoder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cp_README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Functions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="class-payload_encodercayennelpp">Class PAYLOAD_ENCODER::CayenneLPP</h1>
+<p><strong>template &lt;size_t MaxSize&gt;</strong></p>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="../namespacePAYLOAD__ENCODER/"><strong>PAYLOAD_ENCODER</strong></a> <strong>&gt;</strong> <a href="./"><strong>CayenneLPP</strong></a></p>
+<p><em>Template class for</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>payload encoder.</em><a href="#detailed-description">More...</a></p>
+<ul>
+<li><code>#include &lt;CayenneLPP.hpp&gt;</code></li>
+</ul>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-cayennelpp-12"><strong>CayenneLPP</strong></a> (const uint8_t size) <br><em>Constructor for</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-cayennelpp-22"><strong>CayenneLPP</strong></a> (const <a href="./"><strong>CayenneLPP</strong></a> &amp; other) <br><em>Copy constructor for the</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>class.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addaccelerometer"><strong>addAccelerometer</strong></a> (const uint8_t sensorChannel, const float x, const float y, const float z) <br><em>Adds an accelerometer field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addanaloginput"><strong>addAnalogInput</strong></a> (const uint8_t sensorChannel, const float value) <br><em>Adds an analog input field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addanalogoutput"><strong>addAnalogOutput</strong></a> (const uint8_t sensorChannel, const float value) <br><em>Adds an analog output field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addbarometer"><strong>addBarometer</strong></a> (const uint8_t sensorChannel, const float value) <br><em>Adds a barometric pressure field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-adddigitalinput"><strong>addDigitalInput</strong></a> (const uint8_t sensorChannel, const uint8_t value) <br><em>Adds a digital input field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-adddigitaloutput"><strong>addDigitalOutput</strong></a> (const uint8_t sensorChannel, const uint8_t value) <br><em>Adds a digital output field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addgpslocation"><strong>addGPSLocation</strong></a> (uint8_t sensorChannel, const float lat, const float lon, const float alt) <br><em>Adds a GPS location field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addgyroscope"><strong>addGyroscope</strong></a> (const uint8_t sensorChannel, const float x, const float y, const float z) <br><em>Adds a gyroscope field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addhumidity"><strong>addHumidity</strong></a> (const uint8_t sensorChannel, const float value) <br><em>Adds a humidity field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addillumination"><strong>addIllumination</strong></a> (const uint8_t sensorChannel, const uint16_t value) <br><em>Adds an illumination field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addpresence"><strong>addPresence</strong></a> (const uint8_t sensorChannel, const uint8_t value) <br><em>Adds a presence sensor field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-addtemperature"><strong>addTemperature</strong></a> (const uint8_t sensorChannel, const float value) <br><em>Adds a temperature field to the payload.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t</td>
+<td style="text-align: left;"><a href="#function-copy"><strong>copy</strong></a> (uint8_t * destBuffer) const<br><em>Copies the buffer to the destination buffer.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">const uint8_t *</td>
+<td style="text-align: left;"><a href="#function-getbuffer"><strong>getBuffer</strong></a> (void) const<br><em>Returns the buffer.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">size_t</td>
+<td style="text-align: left;"><a href="#function-getsize"><strong>getSize</strong></a> (void) const<br><em>Gets the size of the buffer.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="./"><strong>CayenneLPP</strong></a> &amp;</td>
+<td style="text-align: left;"><a href="#function-operator"><strong>operator=</strong></a> (const <a href="./"><strong>CayenneLPP</strong></a> &amp; other) <br><em>Copy assignment operator for the</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>class.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-reset"><strong>reset</strong></a> () <br><em>Resets the buffer.</em></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-cayennelpp"><strong>~CayenneLPP</strong></a> () <br><em>Destructor for</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>.</em></td>
+</tr>
+</tbody>
+</table>
+<h1 id="detailed-description">Detailed Description</h1>
+<p><strong>Template parameters:</strong></p>
+<ul>
+<li><code>MaxSize</code> Maximum size of the buffer. </li>
+</ul>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-cayennelpp-12">function CayenneLPP [1/2]</h3>
+<p><em>Constructor for</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>.</em></p>
+<pre><code class="language-C++">inline explicit PAYLOAD_ENCODER::CayenneLPP::CayenneLPP (
+    const uint8_t size
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>size</code> Size of the buffer. </li>
+</ul>
+<h3 id="function-cayennelpp-22">function CayenneLPP [2/2]</h3>
+<p><em>Copy constructor for the</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>class.</em></p>
+<pre><code class="language-C++">inline PAYLOAD_ENCODER::CayenneLPP::CayenneLPP (
+    const CayenneLPP &amp; other
+) 
+</code></pre>
+<p>Initializes a new instance of the <a href="./"><strong>CayenneLPP</strong></a> class by deep copying the contents from another instance. This includes copying the operational size, current index, and the contents of the data buffer up to the current index. The purpose of this constructor is to create a new object with the same state as the object passed as a parameter.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>other</code> The <a href="./"><strong>CayenneLPP</strong></a> instance from which to copy. </li>
+</ul>
+<h3 id="function-addaccelerometer">function addAccelerometer</h3>
+<p><em>Adds an accelerometer field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addAccelerometer (
+    const uint8_t sensorChannel,
+    const float x,
+    const float y,
+    const float z
+) 
+</code></pre>
+<p>This method appends accelerometer data to the payload, including x, y, and z axis measurements. The accelerometer data is identified by a unique sensor channel, with each axis value representing acceleration in Gs. This method allows for the capture of three-dimensional motion or orientation data.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the accelerometer sensor. </li>
+<li><code>x</code> The acceleration value along the x-axis in Gs. </li>
+<li><code>y</code> The acceleration value along the y-axis in Gs. </li>
+<li><code>z</code> The acceleration value along the z-axis in Gs. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the accelerometer data. Returns 0 if there was an error or if the payload could not be appended. </p>
+<h3 id="function-addanaloginput">function addAnalogInput</h3>
+<p><em>Adds an analog input field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addAnalogInput (
+    const uint8_t sensorChannel,
+    const float value
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the analog input sensor. </li>
+<li><code>value</code> The analog value to be added. This value is scaled appropriately before adding to the payload. Precision of 0.01 Signed. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the analog input. </p>
+<h3 id="function-addanalogoutput">function addAnalogOutput</h3>
+<p><em>Adds an analog output field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addAnalogOutput (
+    const uint8_t sensorChannel,
+    const float value
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the analog output sensor. </li>
+<li><code>value</code> The analog value to be added. This value is scaled appropriately before adding to the payload. Precision of 0.01 Signed. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the analog output. </p>
+<h3 id="function-addbarometer">function addBarometer</h3>
+<p><em>Adds a barometric pressure field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addBarometer (
+    const uint8_t sensorChannel,
+    const float value
+) 
+</code></pre>
+<p>This method appends a barometric pressure value to the payload. The barometric pressure is identified by a unique sensor channel, with the value representing atmospheric pressure in hPa (hectopascals).</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the barometer sensor. </li>
+<li><code>value</code> The barometric pressure in hPa to be added. This value is scaled appropriately before adding to the payload. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the barometric pressure value. Returns 0 if there was an error or if the payload could not be appended. </p>
+<h3 id="function-adddigitalinput">function addDigitalInput</h3>
+<p><em>Adds a digital input field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addDigitalInput (
+    const uint8_t sensorChannel,
+    const uint8_t value
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the digital input sensor. </li>
+<li><code>value</code> The value of the digital input byte or bool (0 or 1). </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the digital input. </p>
+<h3 id="function-adddigitaloutput">function addDigitalOutput</h3>
+<p><em>Adds a digital output field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addDigitalOutput (
+    const uint8_t sensorChannel,
+    const uint8_t value
+) 
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the digital output sensor. </li>
+<li><code>value</code> The value of the digital output byte or bool (0 or 1). </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the digital output. </p>
+<h3 id="function-addgpslocation">function addGPSLocation</h3>
+<p><em>Adds a GPS location field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addGPSLocation (
+    uint8_t sensorChannel,
+    const float lat,
+    const float lon,
+    const float alt
+) 
+</code></pre>
+<p>This method appends GPS location data to the payload, including latitude, longitude, and altitude. The GPS location data is identified by a unique sensor channel, with the latitude and longitude values in degrees and the altitude in meters.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the GPS sensor. </li>
+<li><code>lat</code> The latitude in degrees. </li>
+<li><code>lon</code> The longitude in degrees. </li>
+<li><code>alt</code> The altitude in meters above sea level. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the GPS location data. Returns 0 if there was an error or if the payload could not be appended. </p>
+<h3 id="function-addgyroscope">function addGyroscope</h3>
+<p><em>Adds a gyroscope field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addGyroscope (
+    const uint8_t sensorChannel,
+    const float x,
+    const float y,
+    const float z
+) 
+</code></pre>
+<p>This method appends gyroscope data to the payload, including angular velocity around the x, y, and z axes. The gyroscope data is identified by a unique sensor channel, with each axis value representing angular velocity in degrees per second.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the gyroscope sensor. </li>
+<li><code>x</code> The angular velocity around the x-axis in degrees per second. </li>
+<li><code>y</code> The angular velocity around the y-axis in degrees per second. </li>
+<li><code>z</code> The angular velocity around the z-axis in degrees per second. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the gyroscope data. Returns 0 if there was an error or if the payload could not be appended. </p>
+<h3 id="function-addhumidity">function addHumidity</h3>
+<p><em>Adds a humidity field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addHumidity (
+    const uint8_t sensorChannel,
+    const float value
+) 
+</code></pre>
+<p>This method appends a humidity value to the payload, represented as a percentage of relative humidity. The humidity sensor is identified by a unique sensor channel, and the value must be between 0 and 100, representing 0% to 100% relative humidity.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the humidity sensor. </li>
+<li><code>value</code> The relative humidity value to be added, specified as a percentage from 0 to 100. This value is scaled appropriately before adding to the payload. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the humidity value. Returns 0 if there was an error or if the payload could not be appended. </p>
+<h3 id="function-addillumination">function addIllumination</h3>
+<p><em>Adds an illumination field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addIllumination (
+    const uint8_t sensorChannel,
+    const uint16_t value
+) 
+</code></pre>
+<p>This method appends an illumination value (two-byte value) to the payload. The illumination is identified by a unique sensor channel and its value, representing light intensity in lux.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the illumination sensor. </li>
+<li><code>value</code> The illumination value in lux to be added. This value is encoded directly into the payload. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the illumination value. </p>
+<h3 id="function-addpresence">function addPresence</h3>
+<p><em>Adds a presence sensor field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addPresence (
+    const uint8_t sensorChannel,
+    const uint8_t value
+) 
+</code></pre>
+<p>This method appends a presence sensor value (single byte value) to the payload. The presence sensor is identified by a unique sensor channel and its value (0 or 1), indicating absence or presence.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the presence sensor. </li>
+<li><code>value</code> The value of the presence sensor (0 for absence, 1 for presence). </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the presence sensor value. </p>
+<h3 id="function-addtemperature">function addTemperature</h3>
+<p><em>Adds a temperature field to the payload.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::addTemperature (
+    const uint8_t sensorChannel,
+    const float value
+) 
+</code></pre>
+<p>This method appends a temperature value (two-byte value) to the payload. The temperature is identified by a unique sensor channel and its value, representing the temperature in degrees Celsius.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>sensorChannel</code> The channel number of the temperature sensor. </li>
+<li><code>value</code> The temperature value in degrees Celsius to be added. This value is scaled appropriately before adding to the payload. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Returns the new size of the payload after adding the temperature value. </p>
+<h3 id="function-copy">function copy</h3>
+<p><em>Copies the buffer to the destination buffer.</em> </p>
+<pre><code class="language-C++">inline const uint8_t PAYLOAD_ENCODER::CayenneLPP::copy (
+    uint8_t * destBuffer
+) const
+</code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>destBuffer</code> Destination buffer. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p>uint8_t Number of bytes copied. </p>
+<h3 id="function-getbuffer">function getBuffer</h3>
+<p><em>Returns the buffer.</em> </p>
+<pre><code class="language-C++">inline const uint8_t * PAYLOAD_ENCODER::CayenneLPP::getBuffer (
+    void
+) const
+</code></pre>
+<p><strong>Returns:</strong></p>
+<p>const uint8_t* Pointer to the buffer. </p>
+<h3 id="function-getsize">function getSize</h3>
+<p><em>Gets the size of the buffer.</em> </p>
+<pre><code class="language-C++">inline size_t PAYLOAD_ENCODER::CayenneLPP::getSize (
+    void
+) const
+</code></pre>
+<p><strong>Returns:</strong></p>
+<p>size_t Size of the buffer. </p>
+<h3 id="function-operator">function operator=</h3>
+<p><em>Copy assignment operator for the</em> <a href="./"><em><strong>CayenneLPP</strong></em></a> <em>class.</em></p>
+<pre><code class="language-C++">inline CayenneLPP &amp; PAYLOAD_ENCODER::CayenneLPP::operator= (
+    const CayenneLPP &amp; other
+) 
+</code></pre>
+<p>Replaces the contents of this instance with a copy of the contents of another instance.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>other</code> The <a href="./"><strong>CayenneLPP</strong></a> instance to assign from. </li>
+</ul>
+<p><strong>Returns:</strong></p>
+<p><a href="./"><strong>CayenneLPP</strong></a>&amp; A reference to this instance after copying. </p>
+<h3 id="function-reset">function reset</h3>
+<pre><code class="language-C++">inline void PAYLOAD_ENCODER::CayenneLPP::reset () 
+</code></pre>
+<h3 id="function-cayennelpp">function ~CayenneLPP</h3>
+<pre><code class="language-C++">inline PAYLOAD_ENCODER::CayenneLPP::~CayenneLPP () 
+</code></pre>
+<hr />
+<p>The documentation for this class was generated from the following file <code>include/CayenneLPP.hpp</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

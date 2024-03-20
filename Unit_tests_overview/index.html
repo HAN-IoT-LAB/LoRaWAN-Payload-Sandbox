@@ -1,0 +1,716 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Doxygen/files/">
+      
+      
+        <link rel="next" href="../TTN_decoder/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>Unit Testing - HAN-IoT-LAB2324 | LoRaWAN Payload Encoder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#result-passed" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-header__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Unit Testing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-nav__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CayenneLPP_page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CayenneLPP Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Doxygen Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Doxygen Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Namespaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/hierarchy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/_cayenne_l_p_p_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/_cayenne_l_p_p_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/_cayenne_references_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Doxygen/_cayenne_references_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Unit Testing
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Unit Testing
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#result-passed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result: PASSED
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TTN_decoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decoder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cp_README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#result-passed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result: PASSED
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Unit Testing</h1>
+
+<p>In the table presented below, we offer a comprehensive overview of the unit tests conducted on the refactored CayenneLPP library. These tests are crucial for validating the functionality and reliability of the library across various scenarios. The unit tests have been meticulously crafted using the Unity Framework. Unity provides a straightforward approach to writing and running tests, making it an ideal choice for our library's validation process.</p>
+<p>The design of our tests is heavily influenced by the AAA (Arrange, Act, Assert) methodology, a standard structure that promotes clarity and maintainability in test writing.</p>
+<p>The focus of these tests is primarily on input and output validation, ensuring that for given inputs, the library produces expected outputs without errors. This includes testing for correct payload encoding based on sensor data, verifying the integrity of encoded data, and ensuring that the library behaves as intended across a wide range of input values.</p>
+<p>All tests are ran natively for development convenience. </p>
+<table>
+<thead>
+<tr>
+<th>Test Function</th>
+<th>Description</th>
+<th>Expected Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>test_addDigitalInput</code></td>
+<td>Tests adding a digital input to the payload.</td>
+<td>Non-zero result; buffer contains correct data type, channel, and value; size is 3.</td>
+</tr>
+<tr>
+<td><code>test_addDigitalOutput</code></td>
+<td>Tests adding a digital output to the payload.</td>
+<td>Non-zero result; buffer contains correct data type, channel, and value; value matches provided input.</td>
+</tr>
+<tr>
+<td><code>test_addDigitalOutput_bool</code></td>
+<td>Tests adding a boolean digital output to the payload.</td>
+<td>Non-zero result; buffer contains correct data type, channel, and boolean value as true.</td>
+</tr>
+<tr>
+<td><code>test_addAnalogInput</code></td>
+<td>Tests adding an analog input with a floating-point value to the payload.</td>
+<td>Non-zero result; buffer contains correct data type, channel, and scaled value; size is accurate.</td>
+</tr>
+<tr>
+<td><code>test_addAnalogOutput</code></td>
+<td>Tests adding an analog output to the payload.</td>
+<td>Non-zero result; buffer contains correct data type, channel, and value as scaled integer.</td>
+</tr>
+<tr>
+<td><code>test_addIllumination</code></td>
+<td>Tests adding an illumination value to the payload.</td>
+<td>Non-zero result; buffer correctly represents illumination sensor data with little endian conversion.</td>
+</tr>
+<tr>
+<td><code>test_addPresence</code></td>
+<td>Tests adding a presence detection value to the payload.</td>
+<td>Non-zero result; buffer contains correct presence data.</td>
+</tr>
+<tr>
+<td><code>test_addTemperature</code></td>
+<td>Tests adding a temperature value to the payload.</td>
+<td>Non-zero result; buffer contains correct temperature data; size matches expectation.</td>
+</tr>
+<tr>
+<td><code>test_addHumidity</code></td>
+<td>Tests adding a humidity value to the payload.</td>
+<td>Non-zero result; buffer represents humidity correctly in 0.5% increments.</td>
+</tr>
+<tr>
+<td><code>test_addAccelerometer</code></td>
+<td>Tests adding accelerometer data (x, y, z) to the payload.</td>
+<td>Non-zero result; buffer accurately represents accelerometer data; correct data size.</td>
+</tr>
+<tr>
+<td><code>test_addBarometer</code></td>
+<td>Tests adding barometric pressure to the payload.</td>
+<td>Non-zero result; buffer accurately represents barometric data; correct endianess and data size.</td>
+</tr>
+<tr>
+<td><code>test_addGyroscope</code></td>
+<td>Tests adding gyroscope data (x, y, z) to the payload.</td>
+<td>Non-zero result; buffer accurately represents gyroscope data; correct data size.</td>
+</tr>
+<tr>
+<td><code>test_addGPSLocation</code></td>
+<td>Tests adding GPS location data (lat, lon, alt) to the payload.</td>
+<td>Non-zero result; buffer accurately represents GPS location data; correct data size.</td>
+</tr>
+<tr>
+<td><code>test_CayenneLPP_CopyAssignment</code></td>
+<td>Tests the copy assignment operator for <code>CayenneLPP</code> objects.</td>
+<td>Copied object's buffer matches source; correct size.</td>
+</tr>
+<tr>
+<td><code>test_CopyToValidBuffer</code></td>
+<td>Tests copying payload data to a provided buffer.</td>
+<td>Copied bytes match expected number; destination buffer matches source payload.</td>
+</tr>
+<tr>
+<td><code>test_CopyToNullBuffer</code></td>
+<td>Tests behavior when attempting to copy payload data to a <code>nullptr</code> buffer.</td>
+<td>Copied bytes are 0; function handles <code>nullptr</code> gracefully.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="result-passed">Result: PASSED</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,816 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>File CayenneLPP.hpp - HAN-IoT-LAB2324 | LoRaWAN Payload Encoder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-cayennelpphpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-header__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File CayenneLPP.hpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-nav__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CayenneLPP_page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CayenneLPP Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Doxygen Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Doxygen Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Namespaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hierarchy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_l_p_p_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_l_p_p_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_references_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_references_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unit_tests_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TTN_decoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decoder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cp_README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="file-cayennelpphpp">File CayenneLPP.hpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_d44c64559bbebec7f509842c48db8b23/"><strong>include</strong></a> <strong>&gt;</strong> <a href="../CayenneLPP_8hpp/"><strong>CayenneLPP.hpp</strong></a></p>
+<p><a href="../CayenneLPP_8hpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">
+/* This code is free software:
+ * you can redistribute it and/or modify it under the terms of a Creative
+ * Commons Attribution-NonCommercial 4.0 International License
+ * (http://creativecommons.org/licenses/by-nc/4.0/)
+ *
+ * Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+ */
+
+#ifndef CAYENNE_LPP_HPP
+#define CAYENNE_LPP_HPP
+
+#include &lt;stdint.h&gt;
+#include &quot;CayenneReferences.hpp&quot;
+
+namespace PAYLOAD_ENCODER
+{
+    template &lt;size_t MaxSize&gt;
+    class CayenneLPP
+    {
+    public:
+        explicit CayenneLPP(const uint8_t size) : operationalSize(size &gt; MaxSize ? MaxSize : size), currentIndex(0) 
+        {
+            for(size_t i = 0; i &lt; MaxSize; i++) {
+                buffer[i] = 0;
+            }
+        }
+
+        CayenneLPP(const CayenneLPP&amp; other) : operationalSize(other.operationalSize), currentIndex(other.currentIndex)
+        {
+            for(size_t i = 0; i &lt; currentIndex; ++i)
+            {
+                buffer[i] = other.buffer[i];
+            }
+        }
+
+        CayenneLPP&amp; operator=(const CayenneLPP&amp; other) {
+            if (this != &amp;other) {
+                currentIndex = other.currentIndex;
+                memcpyAVR(buffer, other.getBuffer(), currentIndex);
+            }
+            return *this;
+        }
+
+        ~CayenneLPP() {}
+
+        /* REQUIRED FUNCTIONS by ASSIGNMENT #1 */
+        void reset()
+        {
+            currentIndex = 0; // Reset currentIndex when buffer is reset
+        }
+
+        size_t getSize(void) const
+        {
+            return currentIndex; // Returns the count of used bytes
+        }
+
+        const uint8_t *getBuffer(void) const
+        {
+            return buffer;
+        }
+
+        const uint8_t copy(uint8_t *destBuffer) const
+        {
+            if (!destBuffer)
+            {
+                return 0; // Safety check to ensure the destination buffer is valid
+            }
+            memcpyAVR(destBuffer, buffer, currentIndex);
+            return static_cast&lt;uint8_t&gt;(currentIndex);
+        }
+
+        /* END of REQUIRED FUNCTIONS by ASSIGNMENT #1 */
+
+        const uint8_t addDigitalInput(const uint8_t sensorChannel, const uint8_t value)
+        {
+            return addField(DATA_TYPES::DIG_IN, sensorChannel, value);
+        }
+
+        const uint8_t addDigitalOutput(const uint8_t sensorChannel, const uint8_t value)
+        {
+            return addField(DATA_TYPES::DIG_OUT, sensorChannel, value);
+        }
+
+        const uint8_t addAnalogInput(const uint8_t sensorChannel, const float value)
+        {
+            return addField(DATA_TYPES::ANL_IN, sensorChannel, value);
+        }
+
+        const uint8_t addAnalogOutput(const uint8_t sensorChannel, const float value)
+        {
+            return addField(DATA_TYPES::ANL_OUT, sensorChannel, value);
+        }
+
+        const uint8_t addIllumination(const uint8_t sensorChannel, const uint16_t value)
+        {
+            return addField(DATA_TYPES::ILLUM_SENS, sensorChannel, value);
+        }
+
+        const uint8_t addPresence(const uint8_t sensorChannel, const uint8_t value)
+        {
+            return addField(DATA_TYPES::PRSNC_SENS, sensorChannel, value);
+        }
+
+        const uint8_t addTemperature(const uint8_t sensorChannel, const float value)
+        {
+            return addField(DATA_TYPES::TEMP_SENS, sensorChannel, value);
+        }
+
+        const uint8_t addHumidity(const uint8_t sensorChannel, const float value)
+        {
+            return addField(DATA_TYPES::HUM_SENS, sensorChannel, value);
+        }
+
+        const uint8_t addAccelerometer(const uint8_t sensorChannel, const float x, const float y, const float z)
+        {
+            return addField(DATA_TYPES::ACCRM_SENS, sensorChannel, x, y, z);
+        }
+
+        const uint8_t addBarometer(const uint8_t sensorChannel, const float value)
+        {
+            return addField(DATA_TYPES::BARO_SENS, sensorChannel, value);
+        }
+
+        const uint8_t addGyroscope(const uint8_t sensorChannel, const float x, const float y, const float z)
+        {
+            return addField(DATA_TYPES::GYRO_SENS, sensorChannel, x, y, z);
+        }
+
+        const uint8_t addGPSLocation(uint8_t sensorChannel, const float lat, const float lon, const float alt)
+        {
+            return addField(DATA_TYPES::GPS_LOC, sensorChannel, lat, lon, alt);
+        }
+
+    private:
+        uint8_t buffer[MaxSize];
+        size_t operationalSize;
+        size_t currentIndex;
+
+        const static inline int32_t round_and_cast(const float value)
+        {
+            if (value &gt; 0)
+            {
+                return static_cast&lt;int32_t&gt;(value + 0.5f);
+            }
+            else
+            {
+                return static_cast&lt;int32_t&gt;(value - 0.5f);
+            }
+        }
+
+        const static inline int16_t round_and_cast_int16(const float value)
+        {
+            if (value &gt; 0)
+            {
+                return static_cast&lt;int16_t&gt;(value + 0.5f);
+            }
+            else
+            {
+                return static_cast&lt;int16_t&gt;(value - 0.5f);
+            }
+        }
+
+        const bool checkCapacity(const size_t dataSize)
+        {
+            return currentIndex + dataSize &lt;= operationalSize;
+        }
+
+        void appendHeader(const DATA_TYPES dataType, const uint8_t sensorChannel)
+        {
+            buffer[currentIndex++] = static_cast&lt;uint8_t&gt;(dataType);
+            buffer[currentIndex++] = sensorChannel;
+        }
+
+        template &lt;typename T&gt;
+        void appendData(const T data)
+        {
+            memcpyAVR(&amp;buffer[currentIndex], &amp;data, sizeof(T));
+            currentIndex += sizeof(T);
+        }
+
+        const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, const uint8_t value)
+        {
+            if (!checkCapacity(3)) {
+                return 0;
+            }
+            appendHeader(dataType, sensorChannel);
+            buffer[currentIndex++] = value;
+            return currentIndex;
+        }
+
+        const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, const uint16_t value)
+        {
+            if (!checkCapacity(4)) {
+                return 0;
+            }
+            appendHeader(dataType, sensorChannel);
+            appendData(value);
+            return currentIndex;
+        }
+
+        const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, const float value)
+        {
+            const uint16_t resolution = FLOATING_DATA_RESOLUTION(dataType);
+            int16_t scaledValue = round_and_cast_int16(value * resolution);
+            if (!checkCapacity(4)) {
+                return 0;
+            }
+            appendHeader(dataType, sensorChannel);
+            appendData(scaledValue);
+            return currentIndex;
+        }
+
+        const uint8_t addFieldImpl(const DATA_TYPES dataType, const uint8_t sensorChannel, 
+            const float first, const float second, const float third)
+        {
+            const size_t totalBytes = getDataTypeSize(dataType) + 2;
+            if (!checkCapacity(totalBytes))
+                return 0;
+
+            appendHeader(dataType, sensorChannel);
+
+            if (dataType == DATA_TYPES::GPS_LOC)
+            {
+                // Special handling for GPS data
+                appendData(round_and_cast(first * FLOATING_DATA_RESOLUTION(dataType)));
+                appendData(round_and_cast(second * FLOATING_DATA_RESOLUTION(dataType)));
+                appendData(round_and_cast(third * (FLOATING_DATA_RESOLUTION(dataType) / 100)));
+            }
+            else
+            {
+                // Generic handling for other types requiring three floats
+                appendData(round_and_cast_int16(first * FLOATING_DATA_RESOLUTION(dataType)));
+                appendData(round_and_cast_int16(second * FLOATING_DATA_RESOLUTION(dataType)));
+                appendData(round_and_cast_int16(third * FLOATING_DATA_RESOLUTION(dataType)));
+            }
+            return currentIndex;
+        }
+
+        template &lt;typename... Args&gt;
+        const uint8_t addField(const DATA_TYPES dataType, const uint8_t sensorChannel, Args... args)
+        {
+            return addFieldImpl(dataType, sensorChannel, args...);
+        }
+
+        static inline void memcpyAVR(void *dest, const void *src, const size_t n)
+        {
+            uint8_t *cdest = static_cast&lt;uint8_t*&gt;(dest);
+            const uint8_t *csrc = static_cast&lt;const uint8_t*&gt;(src);
+            for (size_t i = 0; i &lt; n; i++)
+            {
+                cdest[i] = csrc[i];
+            }
+        }
+    }; // End of class CayenneLPP.
+} // End of Namespace PAYLOAD_ENCODER.
+#endif // CAYENNE_LPP_HPP
+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

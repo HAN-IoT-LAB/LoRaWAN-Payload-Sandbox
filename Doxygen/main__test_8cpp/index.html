@@ -1,0 +1,1002 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+      
+        <title>File main_test.cpp - HAN-IoT-LAB2324 | LoRaWAN Payload Encoder</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-main_testcpp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-header__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File main_test.cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" class="md-nav__button md-logo" aria-label="HAN-IoT-LAB2324 | LoRaWAN Payload Encoder" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HAN-IoT-LAB2324 | LoRaWAN Payload Encoder
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CayenneLPP_page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CayenneLPP Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Doxygen Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Doxygen Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Namespaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hierarchy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_l_p_p_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_l_p_p_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_references_8hpp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    header types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_cayenne_references_8hpp_source.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    src types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Unit_tests_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TTN_decoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decoder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cp_README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    README
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Macros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Functions Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      function main
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      function setUp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-teardown" class="md-nav__link">
+    <span class="md-ellipsis">
+      function tearDown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_cayennelpp_copyassignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_CayenneLPP_CopyAssignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_copytonullbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_CopyToNullBuffer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_copytovalidbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_CopyToValidBuffer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addaccelerometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addAccelerometer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addanaloginput" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addAnalogInput
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addanalogoutput" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addAnalogOutput
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addbarometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addBarometer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_adddigitalinput" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addDigitalInput
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_adddigitaloutput" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addDigitalOutput
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_adddigitaloutput_bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addDigitalOutput_bool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addgpslocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addGPSLocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addgyroscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addGyroscope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addhumidity" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addHumidity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addillumination" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addIllumination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addpresence" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addPresence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-test_addtemperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      function test_addTemperature
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-definition-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Macro Definition Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Definition Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-buf_default" class="md-nav__link">
+    <span class="md-ellipsis">
+      define BUF_DEFAULT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="file-main_testcpp">File main_test.cpp</h1>
+<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_13e138d54eb8818da29c3992edef070a/"><strong>test</strong></a> <strong>&gt;</strong> <a href="./"><strong>main_test.cpp</strong></a></p>
+<p><a href="../main__test_8cpp_source/">Go to the source code of this file</a></p>
+<ul>
+<li><code>#include &lt;unity.h&gt;</code></li>
+<li><code>#include "../include/CayenneLPP.hpp"</code></li>
+<li><code>#include &lt;cstring&gt;</code></li>
+</ul>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-main"><strong>main</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setup"><strong>setUp</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-teardown"><strong>tearDown</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_cayennelpp_copyassignment"><strong>test_CayenneLPP_CopyAssignment</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_copytonullbuffer"><strong>test_CopyToNullBuffer</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_copytovalidbuffer"><strong>test_CopyToValidBuffer</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addaccelerometer"><strong>test_addAccelerometer</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addanaloginput"><strong>test_addAnalogInput</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addanalogoutput"><strong>test_addAnalogOutput</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addbarometer"><strong>test_addBarometer</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_adddigitalinput"><strong>test_addDigitalInput</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_adddigitaloutput"><strong>test_addDigitalOutput</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_adddigitaloutput_bool"><strong>test_addDigitalOutput_bool</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addgpslocation"><strong>test_addGPSLocation</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addgyroscope"><strong>test_addGyroscope</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addhumidity"><strong>test_addHumidity</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addillumination"><strong>test_addIllumination</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addpresence"><strong>test_addPresence</strong></a> (void) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-test_addtemperature"><strong>test_addTemperature</strong></a> (void) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macros">Macros</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-buf_default"><strong>BUF_DEFAULT</strong></a>  64<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-main">function main</h3>
+<pre><code class="language-C++">int main (
+    void
+) 
+</code></pre>
+<h3 id="function-setup">function setUp</h3>
+<pre><code class="language-C++">void setUp (
+    void
+) 
+</code></pre>
+<h3 id="function-teardown">function tearDown</h3>
+<pre><code class="language-C++">void tearDown (
+    void
+) 
+</code></pre>
+<h3 id="function-test_cayennelpp_copyassignment">function test_CayenneLPP_CopyAssignment</h3>
+<pre><code class="language-C++">void test_CayenneLPP_CopyAssignment (
+    void
+) 
+</code></pre>
+<h3 id="function-test_copytonullbuffer">function test_CopyToNullBuffer</h3>
+<pre><code class="language-C++">void test_CopyToNullBuffer (
+    void
+) 
+</code></pre>
+<h3 id="function-test_copytovalidbuffer">function test_CopyToValidBuffer</h3>
+<pre><code class="language-C++">void test_CopyToValidBuffer (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addaccelerometer">function test_addAccelerometer</h3>
+<pre><code class="language-C++">void test_addAccelerometer (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addanaloginput">function test_addAnalogInput</h3>
+<pre><code class="language-C++">void test_addAnalogInput (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addanalogoutput">function test_addAnalogOutput</h3>
+<pre><code class="language-C++">void test_addAnalogOutput (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addbarometer">function test_addBarometer</h3>
+<pre><code class="language-C++">void test_addBarometer (
+    void
+) 
+</code></pre>
+<h3 id="function-test_adddigitalinput">function test_addDigitalInput</h3>
+<pre><code class="language-C++">void test_addDigitalInput (
+    void
+) 
+</code></pre>
+<h3 id="function-test_adddigitaloutput">function test_addDigitalOutput</h3>
+<pre><code class="language-C++">void test_addDigitalOutput (
+    void
+) 
+</code></pre>
+<h3 id="function-test_adddigitaloutput_bool">function test_addDigitalOutput_bool</h3>
+<pre><code class="language-C++">void test_addDigitalOutput_bool (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addgpslocation">function test_addGPSLocation</h3>
+<pre><code class="language-C++">void test_addGPSLocation (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addgyroscope">function test_addGyroscope</h3>
+<pre><code class="language-C++">void test_addGyroscope (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addhumidity">function test_addHumidity</h3>
+<pre><code class="language-C++">void test_addHumidity (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addillumination">function test_addIllumination</h3>
+<pre><code class="language-C++">void test_addIllumination (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addpresence">function test_addPresence</h3>
+<pre><code class="language-C++">void test_addPresence (
+    void
+) 
+</code></pre>
+<h3 id="function-test_addtemperature">function test_addTemperature</h3>
+<pre><code class="language-C++">void test_addTemperature (
+    void
+) 
+</code></pre>
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-buf_default">define BUF_DEFAULT</h3>
+<pre><code class="language-C++">#define BUF_DEFAULT 64
+</code></pre>
+<hr />
+<p>The documentation for this class was generated from the following file <code>test/main_test.cpp</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2024 March by Klaasjan Wagenaar, Tristan Bosveld and Richard Kroesen
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>

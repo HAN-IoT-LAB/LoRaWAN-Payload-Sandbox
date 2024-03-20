@@ -1,0 +1,1419 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classPAYLOAD__ENCODER_1_1CayenneLPP" kind="class" language="C++" prot="public">
+    <compoundname>PAYLOAD_ENCODER::CayenneLPP</compoundname>
+    <includes refid="CayenneLPP_8hpp" local="no">CayenneLPP.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>size_t</type>
+        <declname>MaxSize</declname>
+        <defname>MaxSize</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a6f4a629f07774347f652c4ea4b22c92e" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::buffer[MaxSize]</definition>
+        <argsstring>[MaxSize]</argsstring>
+        <name>buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="314" column="17" bodyfile="include/CayenneLPP.hpp" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1ae251db516b882e148d54b33e3b577c3c" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::operationalSize</definition>
+        <argsstring></argsstring>
+        <name>operationalSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="315" column="16" bodyfile="include/CayenneLPP.hpp" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a12b60ecf00851fad4252946dd148ac39" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::currentIndex</definition>
+        <argsstring></argsstring>
+        <name>currentIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="316" column="16" bodyfile="include/CayenneLPP.hpp" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a3ab3f730e835a41212a5452a99bcbd8d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::CayenneLPP</definition>
+        <argsstring>(const uint8_t size)</argsstring>
+        <name>CayenneLPP</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="31" column="18" bodyfile="include/CayenneLPP.hpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1aee58a67a9a55cdabfcd224f09328bca1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::CayenneLPP</definition>
+        <argsstring>(const CayenneLPP &amp;other)</argsstring>
+        <name>CayenneLPP</name>
+        <param>
+          <type>const <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor for the <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes a new instance of the <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> class by deep copying the contents from another instance. This includes copying the operational size, current index, and the contents of the data buffer up to the current index. The purpose of this constructor is to create a new object with the same state as the object passed as a parameter.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> instance from which to copy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="48" column="9" bodyfile="include/CayenneLPP.hpp" bodystart="48" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a198fab6e9ed56d804575682904e221bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> &amp;</type>
+        <definition>CayenneLPP&amp; PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::operator=</definition>
+        <argsstring>(const CayenneLPP &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy assignment operator for the <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Replaces the contents of this instance with a copy of the contents of another instance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> instance to assign from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref>&amp; A reference to this instance after copying. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="65" column="20" bodyfile="include/CayenneLPP.hpp" bodystart="65" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a164c961849fd438b7523e5abd5f04523" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::~CayenneLPP</definition>
+        <argsstring>()</argsstring>
+        <name>~CayenneLPP</name>
+        <briefdescription>
+<para>Destructor for <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="76" column="9" bodyfile="include/CayenneLPP.hpp" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a961aa35d6dae7cec57e771bffcb60f8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Resets the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="82" column="14" bodyfile="include/CayenneLPP.hpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a7d896bb566a0022297d7d6368ca97ad9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::getSize</definition>
+        <argsstring>(void) const</argsstring>
+        <name>getSize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the size of the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>size_t Size of the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="92" column="16" bodyfile="include/CayenneLPP.hpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a48110829fc799c5de04f2e2b36d83c66" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::getBuffer</definition>
+        <argsstring>(void) const</argsstring>
+        <name>getBuffer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>const uint8_t* Pointer to the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="102" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1aa3985e170da69d6451ab3da8738e4e3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::copy</definition>
+        <argsstring>(uint8_t *destBuffer) const</argsstring>
+        <name>copy</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>destBuffer</declname>
+        </param>
+        <briefdescription>
+<para>Copies the buffer to the destination buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>destBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Number of bytes copied. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="113" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="113" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a22232eaeba61619a747aad085fd0603e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addDigitalInput</definition>
+        <argsstring>(const uint8_t sensorChannel, const uint8_t value)</argsstring>
+        <name>addDigitalInput</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a digital input field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the digital input sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the digital input byte or bool (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the digital input. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="132" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="132" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1ab51e2315d03e82e68009cb2c9ae40f6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addDigitalOutput</definition>
+        <argsstring>(const uint8_t sensorChannel, const uint8_t value)</argsstring>
+        <name>addDigitalOutput</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a digital output field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the digital output sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the digital output byte or bool (0 or 1). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the digital output. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="144" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="144" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a79017a53d5b784111737a6f9af6ff65b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addAnalogInput</definition>
+        <argsstring>(const uint8_t sensorChannel, const float value)</argsstring>
+        <name>addAnalogInput</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds an analog input field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the analog input sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog value to be added. This value is scaled appropriately before adding to the payload. Precision of 0.01 Signed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the analog input. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="157" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a2c1b98d37858d223172832f26907a89c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addAnalogOutput</definition>
+        <argsstring>(const uint8_t sensorChannel, const float value)</argsstring>
+        <name>addAnalogOutput</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds an analog output field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the analog output sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The analog value to be added. This value is scaled appropriately before adding to the payload. Precision of 0.01 Signed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the analog output. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="170" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="170" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a1d253ff44b6ff8f0e4cf320f6248a50b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addIllumination</definition>
+        <argsstring>(const uint8_t sensorChannel, const uint16_t value)</argsstring>
+        <name>addIllumination</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds an illumination field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends an illumination value (two-byte value) to the payload. The illumination is identified by a unique sensor channel and its value, representing light intensity in lux.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the illumination sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The illumination value in lux to be added. This value is encoded directly into the payload. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the illumination value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="185" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="185" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a02f36eea0ffc9a7af72c1463a0f5d5bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addPresence</definition>
+        <argsstring>(const uint8_t sensorChannel, const uint8_t value)</argsstring>
+        <name>addPresence</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a presence sensor field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends a presence sensor value (single byte value) to the payload. The presence sensor is identified by a unique sensor channel and its value (0 or 1), indicating absence or presence.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the presence sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the presence sensor (0 for absence, 1 for presence). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the presence sensor value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="200" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="200" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1ad315fc1da69e07ac67e97076782898a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addTemperature</definition>
+        <argsstring>(const uint8_t sensorChannel, const float value)</argsstring>
+        <name>addTemperature</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a temperature field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends a temperature value (two-byte value) to the payload. The temperature is identified by a unique sensor channel and its value, representing the temperature in degrees Celsius.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the temperature sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The temperature value in degrees Celsius to be added. This value is scaled appropriately before adding to the payload. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the temperature value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="215" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="215" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1af29bc0de62a6a55c16d96ac2ca96ef56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addHumidity</definition>
+        <argsstring>(const uint8_t sensorChannel, const float value)</argsstring>
+        <name>addHumidity</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a humidity field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends a humidity value to the payload, represented as a percentage of relative humidity. The humidity sensor is identified by a unique sensor channel, and the value must be between 0 and 100, representing 0% to 100% relative humidity.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the humidity sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The relative humidity value to be added, specified as a percentage from 0 to 100. This value is scaled appropriately before adding to the payload. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the humidity value. Returns 0 if there was an error or if the payload could not be appended. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="233" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="233" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a2c1a7d2eb71921b3d292ad5091556447" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addAccelerometer</definition>
+        <argsstring>(const uint8_t sensorChannel, const float x, const float y, const float z)</argsstring>
+        <name>addAccelerometer</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Adds an accelerometer field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends accelerometer data to the payload, including x, y, and z axis measurements. The accelerometer data is identified by a unique sensor channel, with each axis value representing acceleration in Gs. This method allows for the capture of three-dimensional motion or orientation data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the accelerometer sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The acceleration value along the x-axis in Gs. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The acceleration value along the y-axis in Gs. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The acceleration value along the z-axis in Gs. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the accelerometer data. Returns 0 if there was an error or if the payload could not be appended. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="252" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="252" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a10bbea5c918ccea630bb5e759c7f44e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addBarometer</definition>
+        <argsstring>(const uint8_t sensorChannel, const float value)</argsstring>
+        <name>addBarometer</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a barometric pressure field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends a barometric pressure value to the payload. The barometric pressure is identified by a unique sensor channel, with the value representing atmospheric pressure in hPa (hectopascals).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the barometer sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The barometric pressure in hPa to be added. This value is scaled appropriately before adding to the payload. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the barometric pressure value. Returns 0 if there was an error or if the payload could not be appended. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="270" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="270" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1adea66093ddc45481b31113e68978664c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addGyroscope</definition>
+        <argsstring>(const uint8_t sensorChannel, const float x, const float y, const float z)</argsstring>
+        <name>addGyroscope</name>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Adds a gyroscope field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends gyroscope data to the payload, including angular velocity around the x, y, and z axes. The gyroscope data is identified by a unique sensor channel, with each axis value representing angular velocity in degrees per second.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the gyroscope sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The angular velocity around the x-axis in degrees per second. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The angular velocity around the y-axis in degrees per second. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The angular velocity around the z-axis in degrees per second. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the gyroscope data. Returns 0 if there was an error or if the payload could not be appended. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="289" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="289" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a35f05bdda43059164ec44d845af9a30a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addGPSLocation</definition>
+        <argsstring>(uint8_t sensorChannel, const float lat, const float lon, const float alt)</argsstring>
+        <name>addGPSLocation</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>lat</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>lon</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>alt</declname>
+        </param>
+        <briefdescription>
+<para>Adds a GPS location field to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends GPS location data to the payload, including latitude, longitude, and altitude. The GPS location data is identified by a unique sensor channel, with the latitude and longitude values in degrees and the altitude in meters.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number of the GPS sensor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The latitude in degrees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The longitude in degrees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The altitude in meters above sea level. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new size of the payload after adding the GPS location data. Returns 0 if there was an error or if the payload could not be appended. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="308" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="308" bodyend="311"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a2e7ca30ebeb6365c79cde2056340b438" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const int32_t</type>
+        <definition>static const int32_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::round_and_cast</definition>
+        <argsstring>(const float value)</argsstring>
+        <name>round_and_cast</name>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Rounds a floating-point value and casts it to an int32_t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function rounds the given floating-point value to the nearest integer, following the half-away-from-zero rule (also known as commercial rounding). It is designed to avoid precision issues commonly associated with floating-point arithmetic when converting to an integer type.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point value to be rounded and cast. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int32_t The rounded value, cast to an int32_t. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="329" column="37" bodyfile="include/CayenneLPP.hpp" bodystart="329" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1aef83188238036e0909b0879a766f2963" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const int16_t</type>
+        <definition>static const int16_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::round_and_cast_int16</definition>
+        <argsstring>(const float value)</argsstring>
+        <name>round_and_cast_int16</name>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Rounds a floating-point value and casts it to an int16_t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Similar to round_and_cast, this function rounds the given floating-point value to the nearest integer, following the half-away-from-zero rule. The result is then cast to an int16_t. This function is particularly useful for values expected to be within the int16_t range and when working with data types that require lower precision and less storage.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The floating-point value to be rounded and cast. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int16_t The rounded value, cast to an int16_t. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="353" column="37" bodyfile="include/CayenneLPP.hpp" bodystart="353" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a184adf227953b9c248ec3284a457b463" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::memcpyAVR</definition>
+        <argsstring>(void *dest, const void *src, const size_t n)</argsstring>
+        <name>memcpyAVR</name>
+        <param>
+          <type>void *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>const size_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Custom implementation of memcpy for AVR or similar architectures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function copies &apos;n&apos; bytes from memory area &apos;src&apos; to memory area &apos;dest&apos;. It is designed for environments where the standard library&apos;s memcpy may not be available or optimal. This function performs a byte-by-byte copy.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the destination array where the content is to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the source of data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to be copied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="558" column="28" bodyfile="include/CayenneLPP.hpp" bodystart="558" bodyend="566"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1ae16a42138cf80556147d54611de967b1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const bool</type>
+        <definition>const bool PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::checkCapacity</definition>
+        <argsstring>(const size_t dataSize)</argsstring>
+        <name>checkCapacity</name>
+        <param>
+          <type>const size_t</type>
+          <declname>dataSize</declname>
+        </param>
+        <briefdescription>
+<para>Checks if there is enough space in the buffer to append new data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function determines if the buffer has sufficient capacity to accommodate additional data of a specified size. It is useful for preventing buffer overflows by ensuring that operations do not exceed the buffer&apos;s operational size.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data (in bytes) that needs to be appended to the buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool Returns true if there is enough space to append the data; otherwise, false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="375" column="20" bodyfile="include/CayenneLPP.hpp" bodystart="375" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a5f1749fc358da4544d2501993031b0d0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::appendHeader</definition>
+        <argsstring>(const DATA_TYPES dataType, const uint8_t sensorChannel)</argsstring>
+        <name>appendHeader</name>
+        <param>
+          <type>const DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <briefdescription>
+<para>Appends a header consisting of data type and sensor channel to the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function appends a two-byte header to the payload buffer. The first byte represents the data type (encoded as a uint8_t), and the second byte represents the sensor channel. This header precedes the actual sensor data in the payload.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type identifier for the sensor data being appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number associated with the sensor data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="390" column="14" bodyfile="include/CayenneLPP.hpp" bodystart="390" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a7f45124652a43c57a8e6dbdf49df606a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::appendData</definition>
+        <argsstring>(const T data)</argsstring>
+        <name>appendData</name>
+        <param>
+          <type>const T</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Appends data of any type to the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Utilizes template specialization to append data of a specified type to the payload buffer. The function leverages the memcpyAVR function to copy the data into the buffer, handling various data types seamlessly. This method automatically adjusts the currentIndex to reflect the new size of the buffer after the data append operation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to be appended to the buffer. Can be of any type (e.g., int, float). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the data being appended. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="408" column="14" bodyfile="include/CayenneLPP.hpp" bodystart="408" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a523dab0c478870a9a39b7d53faa6a738" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addFieldImpl</definition>
+        <argsstring>(const DATA_TYPES dataType, const uint8_t sensorChannel, const uint8_t value)</argsstring>
+        <name>addFieldImpl</name>
+        <param>
+          <type>const DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a field with a single-byte value to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Appends a sensor data field to the payload, consisting of a header (data type and sensor channel) followed by a single-byte value. This function is typically used for data types that are represented by a single byte, such as digital inputs or outputs.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type identifier for the sensor data being appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number associated with the sensor data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The single-byte sensor data value to be appended. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new current index in the buffer after appending the data. Returns 0 if there was insufficient capacity to append the data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="427" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="427" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a1d85fa9cbc4e697b008f410fa15823f4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addFieldImpl</definition>
+        <argsstring>(const DATA_TYPES dataType, const uint8_t sensorChannel, const uint16_t value)</argsstring>
+        <name>addFieldImpl</name>
+        <param>
+          <type>const DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a field with a two-byte value to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Appends a sensor data field to the payload, including a header (data type and sensor channel) followed by a two-byte value. This function is suitable for data types like analog values, which are represented by two bytes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type identifier for the sensor data being appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number associated with the sensor data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The two-byte sensor data value to be appended. It&apos;s directly appended using appendData function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new current index in the buffer after appending the data. Returns 0 if there was insufficient capacity to append the data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="450" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="450" bodyend="458"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1ae20d4da491bbf60fe8157fdd6bec0f4f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addFieldImpl</definition>
+        <argsstring>(const DATA_TYPES dataType, const uint8_t sensorChannel, const float value)</argsstring>
+        <name>addFieldImpl</name>
+        <param>
+          <type>const DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a field with a scaled float value to the payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Appends a sensor data field to the payload, including a header (data type and sensor channel) followed by a float value that is scaled and cast to a two-byte integer before appending. This is typically used for sensor data like temperature, humidity, etc., that need scaling.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type identifier for the sensor data being appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number associated with the sensor data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The float sensor data value to be scaled, cast, and appended. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new current index in the buffer after appending the data. Returns 0 if there was insufficient capacity to append the data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="473" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="473" bodyend="483"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a9e95a7bcd969f20a0844fc6f7e020706" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addFieldImpl</definition>
+        <argsstring>(const DATA_TYPES dataType, const uint8_t sensorChannel, const float first, const float second, const float third)</argsstring>
+        <name>addFieldImpl</name>
+        <param>
+          <type>const DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>second</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>third</declname>
+        </param>
+        <briefdescription>
+<para>Adds a field with three float values to the payload, with special handling for GPS data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method appends data consisting of three float values to the payload, including a header (data type and sensor channel). It provides special handling for GPS location data, applying appropriate scaling and precision adjustments. For other data types requiring three floats, it scales and casts each float to a two-byte integer before appending.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type identifier for the sensor data being appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number associated with the sensor data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>first</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first float value (e.g., latitude or x-axis acceleration). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>second</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second float value (e.g., longitude or y-axis acceleration). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>third</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The third float value (e.g., altitude or z-axis acceleration). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new current index in the buffer after appending the data. Returns 0 if there was insufficient capacity to append the data. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="501" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="501" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="classPAYLOAD__ENCODER_1_1CayenneLPP_1a43c95ec1677694c077b6f74e02073a58" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>const uint8_t</type>
+        <definition>const uint8_t PAYLOAD_ENCODER::CayenneLPP&lt; MaxSize &gt;::addField</definition>
+        <argsstring>(const DATA_TYPES dataType, const uint8_t sensorChannel, Args... args)</argsstring>
+        <name>addField</name>
+        <param>
+          <type>const DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <param>
+          <type>const uint8_t</type>
+          <declname>sensorChannel</declname>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Dispatches the call to the appropriate addFieldImpl overload based on the argument types. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This variadic template function allows for flexible addition of various types of sensor data to the payload. It routes the call to the correct implementation of addFieldImpl based on the count and types of the arguments provided.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type identifier for the sensor data being appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sensorChannel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The channel number associated with the sensor data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sensor data values to be appended. This could be a single value, two values, or three values depending on the data type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>uint8_t Returns the new current index in the buffer after appending the data. The return value is determined by the specific addFieldImpl overload called. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneLPP.hpp" line="542" column="23" bodyfile="include/CayenneLPP.hpp" bodystart="542" bodyend="545"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Template class for <ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">CayenneLPP</ref> payload encoder. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>MaxSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum size of the buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/CayenneLPP.hpp" line="23" column="5" bodyfile="include/CayenneLPP.hpp" bodystart="24" bodyend="567"/>
+    <listofallmembers>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a2c1a7d2eb71921b3d292ad5091556447" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addAccelerometer</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a79017a53d5b784111737a6f9af6ff65b" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addAnalogInput</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a2c1b98d37858d223172832f26907a89c" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addAnalogOutput</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a10bbea5c918ccea630bb5e759c7f44e1" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addBarometer</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a22232eaeba61619a747aad085fd0603e" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addDigitalInput</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1ab51e2315d03e82e68009cb2c9ae40f6a" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addDigitalOutput</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a43c95ec1677694c077b6f74e02073a58" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addField</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a523dab0c478870a9a39b7d53faa6a738" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addFieldImpl</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a1d85fa9cbc4e697b008f410fa15823f4" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addFieldImpl</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1ae20d4da491bbf60fe8157fdd6bec0f4f" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addFieldImpl</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a9e95a7bcd969f20a0844fc6f7e020706" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addFieldImpl</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a35f05bdda43059164ec44d845af9a30a" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addGPSLocation</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1adea66093ddc45481b31113e68978664c" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addGyroscope</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1af29bc0de62a6a55c16d96ac2ca96ef56" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addHumidity</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a1d253ff44b6ff8f0e4cf320f6248a50b" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addIllumination</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a02f36eea0ffc9a7af72c1463a0f5d5bc" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addPresence</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1ad315fc1da69e07ac67e97076782898a0" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>addTemperature</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a7f45124652a43c57a8e6dbdf49df606a" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>appendData</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a5f1749fc358da4544d2501993031b0d0" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>appendHeader</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a6f4a629f07774347f652c4ea4b22c92e" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>buffer</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a3ab3f730e835a41212a5452a99bcbd8d" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>CayenneLPP</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1aee58a67a9a55cdabfcd224f09328bca1" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>CayenneLPP</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1ae16a42138cf80556147d54611de967b1" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>checkCapacity</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1aa3985e170da69d6451ab3da8738e4e3a" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>copy</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a12b60ecf00851fad4252946dd148ac39" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>currentIndex</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a48110829fc799c5de04f2e2b36d83c66" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>getBuffer</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a7d896bb566a0022297d7d6368ca97ad9" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>getSize</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a184adf227953b9c248ec3284a457b463" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>memcpyAVR</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1ae251db516b882e148d54b33e3b577c3c" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>operationalSize</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a198fab6e9ed56d804575682904e221bb" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>operator=</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a961aa35d6dae7cec57e771bffcb60f8b" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>reset</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a2e7ca30ebeb6365c79cde2056340b438" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>round_and_cast</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1aef83188238036e0909b0879a766f2963" prot="private" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>round_and_cast_int16</name></member>
+      <member refid="classPAYLOAD__ENCODER_1_1CayenneLPP_1a164c961849fd438b7523e5abd5f04523" prot="public" virt="non-virtual"><scope>PAYLOAD_ENCODER::CayenneLPP</scope><name>~CayenneLPP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacePAYLOAD__ENCODER" kind="namespace" language="C++">
+    <compoundname>PAYLOAD_ENCODER</compoundname>
+    <innerclass refid="classPAYLOAD__ENCODER_1_1CayenneLPP" prot="public">PAYLOAD_ENCODER::CayenneLPP</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645e" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>DATA_TYPES</name>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645ea3980a169ec6e1a7259569dd0b136963a" prot="public">
+          <name>DIG_IN</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645ead24b3fc5bfdba290949f27524b822c31" prot="public">
+          <name>DIG_OUT</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645eaa27f07011b67d5b4ee70973b96cfbb39" prot="public">
+          <name>ANL_IN</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645ea51d10a9cc674cea7369d8635b1eabbc4" prot="public">
+          <name>ANL_OUT</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645ea5f7a32da3bec4149a68137dea67881e9" prot="public">
+          <name>ILLUM_SENS</name>
+          <initializer>= 101</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645eabbaf5c07bbffa705642ec0bda6cd5778" prot="public">
+          <name>PRSNC_SENS</name>
+          <initializer>= 102</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645eaf19ed1c39faf95f5782464186c2ecdf3" prot="public">
+          <name>TEMP_SENS</name>
+          <initializer>= 103</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645eaedabbc29e0e0abef048cb508e8bbb0b5" prot="public">
+          <name>HUM_SENS</name>
+          <initializer>= 104</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645eaec481f8ef8157281bebf14e6d8682c46" prot="public">
+          <name>ACCRM_SENS</name>
+          <initializer>= 113</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645ea727634bd96b598eb6aeb8e7739a0d787" prot="public">
+          <name>BARO_SENS</name>
+          <initializer>= 115</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645ea473e024e85b16001f8ab8e461f42ed63" prot="public">
+          <name>GYRO_SENS</name>
+          <initializer>= 134</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a7689ae0ae458aec4dc083980dfa3645eada4dda6ef270721541c2a9f5a3d413b3" prot="public">
+          <name>GPS_LOC</name>
+          <initializer>= 136</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum class defining data types for Cayenne LPP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneReferences.hpp" line="19" column="5" bodyfile="include/CayenneReferences.hpp" bodystart="20" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="enum" id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852" prot="public" static="no" strong="yes">
+        <type>size_t</type>
+        <name>DATA_TYPES_SIZES</name>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852a3980a169ec6e1a7259569dd0b136963a" prot="public">
+          <name>DIG_IN</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852ad24b3fc5bfdba290949f27524b822c31" prot="public">
+          <name>DIG_OUT</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852aa27f07011b67d5b4ee70973b96cfbb39" prot="public">
+          <name>ANL_IN</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852a51d10a9cc674cea7369d8635b1eabbc4" prot="public">
+          <name>ANL_OUT</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852a5f7a32da3bec4149a68137dea67881e9" prot="public">
+          <name>ILLUM_SENS</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852abbaf5c07bbffa705642ec0bda6cd5778" prot="public">
+          <name>PRSNC_SENS</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852af19ed1c39faf95f5782464186c2ecdf3" prot="public">
+          <name>TEMP_SENS</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852aedabbc29e0e0abef048cb508e8bbb0b5" prot="public">
+          <name>HUM_SENS</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852aec481f8ef8157281bebf14e6d8682c46" prot="public">
+          <name>ACCRM_SENS</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852a727634bd96b598eb6aeb8e7739a0d787" prot="public">
+          <name>BARO_SENS</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852a473e024e85b16001f8ab8e461f42ed63" prot="public">
+          <name>GYRO_SENS</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a07a093233f61d2f3ef4103efa76e2852ada4dda6ef270721541c2a9f5a3d413b3" prot="public">
+          <name>GPS_LOC</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum class defining sizes of data types for Cayenne LPP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneReferences.hpp" line="38" column="5" bodyfile="include/CayenneReferences.hpp" bodystart="39" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="enum" id="CayenneReferences_8hpp_1a494d5039bc1c34273836a5b2915176af" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>ERROR_TYPES</name>
+        <enumvalue id="CayenneReferences_8hpp_1a494d5039bc1c34273836a5b2915176afac8c762068b3e5233eb8974bd664309e9" prot="public">
+          <name>LPP_ERROR_OVERFLOW</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>No error </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a494d5039bc1c34273836a5b2915176afad58d1f9e2a69b6ee61ebd3f2c8891a29" prot="public">
+          <name>LPP_ERROR_UNKOWN_TYPE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Buffer overflow </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="CayenneReferences_8hpp_1a494d5039bc1c34273836a5b2915176afa9a2f13840f446e18d657edb8e2463de4" prot="public">
+          <name>LPP_ERROR_OK</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Unknown data type </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum class defining error types for Cayenne LPP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneReferences.hpp" line="137" column="5" bodyfile="include/CayenneReferences.hpp" bodystart="138" bodyend="142"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="CayenneReferences_8hpp_1aa50e77abec9a9686ae8c5d1ddea99f92" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const int16_t</type>
+        <definition>static const int16_t PAYLOAD_ENCODER::FLOATING_DATA_RESOLUTION</definition>
+        <argsstring>(DATA_TYPES dataType)</argsstring>
+        <name>FLOATING_DATA_RESOLUTION</name>
+        <param>
+          <type>DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <briefdescription>
+<para>Function to get the resolution for floating point data types. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The resolution of the data type. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneReferences.hpp" line="61" column="33" bodyfile="include/CayenneReferences.hpp" bodystart="61" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="CayenneReferences_8hpp_1ab09701022b72be40f45d25d69a2da469" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const size_t</type>
+        <definition>static const size_t PAYLOAD_ENCODER::getDataTypeSize</definition>
+        <argsstring>(DATA_TYPES dataType)</argsstring>
+        <name>getDataTypeSize</name>
+        <param>
+          <type>DATA_TYPES</type>
+          <declname>dataType</declname>
+        </param>
+        <briefdescription>
+<para>Function to create a mapping between data types reference and respective size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dataType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The size of the data type in bytes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CayenneReferences.hpp" line="100" column="32" bodyfile="include/CayenneReferences.hpp" bodystart="100" bodyend="132"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/CayenneLPP.hpp" line="15" column="1"/>
+  </compounddef>
+</doxygen>

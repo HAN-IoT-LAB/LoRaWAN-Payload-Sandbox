@@ -1,0 +1,701 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="main__test_8cpp" kind="file" language="C++">
+    <compoundname>main_test.cpp</compoundname>
+    <includes local="no">unity.h</includes>
+    <includes refid="CayenneLPP_8hpp" local="yes">../include/CayenneLPP.hpp</includes>
+    <includes local="no">cstring</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>CayenneReferences.hpp</label>
+        <link refid="CayenneReferences_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>../include/CayenneLPP.hpp</label>
+        <link refid="CayenneLPP_8hpp_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>unity.h</label>
+      </node>
+      <node id="1">
+        <label>test/main_test.cpp</label>
+        <link refid="main__test_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstring</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="main__test_8cpp_1abe147f1a2d8fa4026c77c3b74f8efaf5" prot="public" static="no">
+        <name>BUF_DEFAULT</name>
+        <initializer>64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="13" column="9" bodyfile="test/main_test.cpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main__test_8cpp_1a95c834d6178047ce9e1bce7cbfea2836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUp</definition>
+        <argsstring>(void)</argsstring>
+        <name>setUp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="16" column="6" bodyfile="test/main_test.cpp" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a9909011e5fea0c018842eec4d93d0662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tearDown</definition>
+        <argsstring>(void)</argsstring>
+        <name>tearDown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="17" column="6" bodyfile="test/main_test.cpp" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a903d8d63a40cfce2bb275a6be4aa5e98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addDigitalInput</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addDigitalInput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="19" column="6" bodyfile="test/main_test.cpp" bodystart="19" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a42ff1be4cd0f965332833bf11371652e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addDigitalOutput_bool</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addDigitalOutput_bool</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="34" column="6" bodyfile="test/main_test.cpp" bodystart="34" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1af5b87acd4e8b17783c2d678518a3b0e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addDigitalOutput</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addDigitalOutput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="49" column="6" bodyfile="test/main_test.cpp" bodystart="49" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a01c7f05e4ca1c0111674ac9944f8698e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addAnalogInput</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addAnalogInput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="63" column="6" bodyfile="test/main_test.cpp" bodystart="63" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a4e3c26feb8b5056ac81f1296c71914b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addAnalogOutput</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addAnalogOutput</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="78" column="6" bodyfile="test/main_test.cpp" bodystart="78" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a5e91efe632d8b772e89396560d2e17de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addIllumination</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addIllumination</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="92" column="6" bodyfile="test/main_test.cpp" bodystart="92" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a177e1e3974f802064fb7c09853b10e84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addPresence</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addPresence</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="108" column="6" bodyfile="test/main_test.cpp" bodystart="108" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a8840725e46985eeaffe64077379439eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addTemperature</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addTemperature</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="122" column="6" bodyfile="test/main_test.cpp" bodystart="122" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a58f26f334c419e77772ce98daf2ecce9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addHumidity</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addHumidity</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="139" column="6" bodyfile="test/main_test.cpp" bodystart="139" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a6056bc202e7deadea393dbc31512cffe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addAccelerometer</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addAccelerometer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="157" column="6" bodyfile="test/main_test.cpp" bodystart="157" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a7bd872d38ea254b23f5efdcae85da6a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addBarometer</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addBarometer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="187" column="6" bodyfile="test/main_test.cpp" bodystart="187" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a879a1e27963b53fb6c2cb84ec4c0cf91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addGyroscope</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addGyroscope</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="208" column="6" bodyfile="test/main_test.cpp" bodystart="208" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a20702c394143c2a0da29c6164bc44f68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_addGPSLocation</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_addGPSLocation</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="238" column="6" bodyfile="test/main_test.cpp" bodystart="238" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a30fae7483810a221c3ebff14a5d0f2d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_CayenneLPP_CopyAssignment</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_CayenneLPP_CopyAssignment</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="268" column="6" bodyfile="test/main_test.cpp" bodystart="268" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a7f7e45ce8533fe21f0aa79d86978c655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_CopyToValidBuffer</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_CopyToValidBuffer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="288" column="6" bodyfile="test/main_test.cpp" bodystart="288" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1ab362bf2f5d789c471ec0ebe0f7098a85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_CopyToNullBuffer</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_CopyToNullBuffer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="302" column="6" bodyfile="test/main_test.cpp" bodystart="302" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="main__test_8cpp_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(void)</argsstring>
+        <name>main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/main_test.cpp" line="312" column="5" bodyfile="test/main_test.cpp" bodystart="312" bodyend="331"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>This<sp/>code<sp/>is<sp/>free<sp/>software:</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>a<sp/>Creative</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Commons<sp/>Attribution-NonCommercial<sp/>4.0<sp/>International<sp/>License</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>(http://creativecommons.org/licenses/by-nc/4.0/)</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2024<sp/>March<sp/>by<sp/>Richard<sp/>Kroesen</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unity.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../include/CayenneLPP.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUF_DEFAULT<sp/>64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unity.h<sp/>Required<sp/>Defaults:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setUp(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>tearDown(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addDigitalInput(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>17;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>value<sp/>=<sp/>8;<sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addDigitalInput(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::DIG_IN),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(17,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(8,<sp/>buffer[2]);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_size_t(3,<sp/>lpp.getSize());</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addDigitalOutput_bool(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Digital<sp/>output<sp/>value<sp/>to<sp/>add<sp/>(false)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addDigitalOutput(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>flag<sp/>=<sp/>buffer[2];</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::DATA_TYPES::DIG_OUT,<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>flag);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addDigitalOutput(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>value<sp/>=<sp/>50;<sp/></highlight><highlight class="comment">//<sp/>Digital<sp/>output<sp/>value<sp/>to<sp/>add<sp/>(false)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addDigitalOutput(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::DATA_TYPES::DIG_OUT,<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(50,<sp/>buffer[2]);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addAnalogInput(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>3.3f;<sp/></highlight><highlight class="comment">//<sp/>Will<sp/>become<sp/>330<sp/>Real<sp/>fixed<sp/>Number.<sp/>(2decimal<sp/>precision)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addAnalogInput(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::ANL_IN),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(3,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT8(74,<sp/>buffer[2]);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT8(1,<sp/>buffer[3]);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addAnalogOutput(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>2.2f;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addAnalogOutput(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::ANL_OUT),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(4,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT16(220,<sp/>buffer[2]);<sp/></highlight><highlight class="comment">//<sp/>Instaed<sp/>of<sp/>INT8<sp/>asserts.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addIllumination(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>value<sp/>=<sp/>550;<sp/></highlight><highlight class="comment">//<sp/>Example<sp/>illumination<sp/>value<sp/>in<sp/>lux</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addIllumination(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::ILLUM_SENS),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Little<sp/>Endian<sp/>bitshift<sp/>conversion:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8((value<sp/>&amp;<sp/>0xFF),<sp/>buffer[2]);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8((value<sp/>&gt;&gt;<sp/>8),<sp/>buffer[3]);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addPresence(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>66;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>value<sp/>=<sp/>1;<sp/></highlight><highlight class="comment">//<sp/>Presence<sp/>detected</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addPresence(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::PRSNC_SENS),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(1,<sp/>buffer[2]);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addTemperature(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>102;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>25.5321f;<sp/></highlight><highlight class="comment">//<sp/>Example<sp/>temperature<sp/>value<sp/>in<sp/>Celsius</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addTemperature(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::TEMP_SENS),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(255,<sp/>buffer[2]);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(0,<sp/>buffer[3]);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(4,<sp/>lpp.getSize());</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addHumidity(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>75.55f;<sp/></highlight><highlight class="comment">//<sp/>Example<sp/>humidity<sp/>value<sp/>in<sp/>percentage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addHumidity(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>expectedValue<sp/>=<sp/>756;<sp/></highlight><highlight class="comment">//<sp/>Convert<sp/>to<sp/>0.5%<sp/>increments</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>actualValue<sp/>=<sp/>(buffer[3]<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>buffer[2];</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::HUM_SENS),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT16(expectedValue,<sp/>actualValue);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(4,<sp/>lpp.getSize());</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addAccelerometer(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>1.23f,<sp/>y<sp/>=<sp/>-2.34f,<sp/>z<sp/>=<sp/>3.45f;<sp/></highlight><highlight class="comment">//<sp/>Example<sp/>accelerometer<sp/>values<sp/>in<sp/>G</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addAccelerometer(sensorChannel,<sp/>x,<sp/>y,<sp/>z);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>2;<sp/></highlight><highlight class="comment">//<sp/>Start<sp/>index<sp/>for<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Expected<sp/>values<sp/>after<sp/>scaling<sp/>and<sp/>casting<sp/>to<sp/>int16_t</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>expectedValues[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1230,<sp/></highlight><highlight class="comment">//<sp/>Convert<sp/>G<sp/>to<sp/>milli-G</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-2340,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3450</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>3;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reconstruct<sp/>each<sp/>16-bit<sp/>value<sp/>from<sp/>the<sp/>buffer<sp/>and<sp/>compare</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/>actualValue<sp/>=<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index+1])<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index]);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT16(expectedValues[i],<sp/>actualValue);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>index<sp/>+=<sp/>2;<sp/></highlight><highlight class="comment">//<sp/>Move<sp/>to<sp/>the<sp/>next<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::ACCRM_SENS),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(3,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::getDataTypeSize(PAYLOAD_ENCODER::DATA_TYPES::ACCRM_SENS)<sp/>+<sp/>2,<sp/>lpp.getSize());</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addBarometer(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value<sp/>=<sp/>1013.25f;<sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addBarometer(sensorChannel,<sp/>value);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>expectedValue<sp/>=<sp/>10133;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reconstruct<sp/>the<sp/>16-bit<sp/>value<sp/>from<sp/>the<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>actualValue<sp/>=<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index+1])<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index]);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::BARO_SENS),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT16(expectedValue,<sp/>actualValue);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::getDataTypeSize(PAYLOAD_ENCODER::DATA_TYPES::BARO_SENS)<sp/>+<sp/>2,<sp/>lpp.getSize());</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addGyroscope(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Example<sp/>gyroscope<sp/>values<sp/>in<sp/>degrees<sp/>per<sp/>second</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>0.123f,<sp/>y<sp/>=<sp/>-0.234f,<sp/>z<sp/>=<sp/>0.345f;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addGyroscope(sensorChannel,<sp/>x,<sp/>y,<sp/>z);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>2;<sp/></highlight><highlight class="comment">//<sp/>Start<sp/>index<sp/>for<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>expectedX<sp/>=<sp/>12;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>expectedY<sp/>=<sp/>-23;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>expectedZ<sp/>=<sp/>35;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>the<sp/>gyroscope<sp/>values<sp/>from<sp/>the<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>actualX<sp/>=<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index+1])<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index]);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>index<sp/>+=<sp/>2;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>actualY<sp/>=<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index+1])<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index]);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>index<sp/>+=<sp/>2;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>actualZ<sp/>=<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index+1])<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int16_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer[index]);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::GYRO_SENS),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT16(expectedX,<sp/>actualX);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT16(expectedY,<sp/>actualY);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT16(expectedZ,<sp/>actualZ);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::getDataTypeSize(PAYLOAD_ENCODER::DATA_TYPES::GYRO_SENS)<sp/>+<sp/>2,<sp/>lpp.getSize());</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_addGPSLocation(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;BUF_DEFAULT&gt;</ref><sp/>lpp(BUF_DEFAULT);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>6;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Example<sp/>GPS<sp/>coordinates</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/>51.5074f,<sp/>lon<sp/>=<sp/>-0.1278f,<sp/>alt<sp/>=<sp/>30.0f;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>result<sp/>=<sp/>lpp.addGPSLocation(sensorChannel,<sp/>lat,<sp/>lon,<sp/>alt);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer<sp/>=<sp/>lpp.getBuffer();</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>2;<sp/></highlight><highlight class="comment">//<sp/>Start<sp/>index<sp/>for<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>resolution<sp/>factors:<sp/>0.0001<sp/>for<sp/>lat/lon<sp/>and<sp/>0.01<sp/>for<sp/>altitude</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>expectedLat<sp/>=<sp/>515074;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>expectedLon<sp/>=<sp/>-1278;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>expectedAlt<sp/>=<sp/>3000;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>each<sp/>value<sp/>from<sp/>the<sp/>buffer<sp/>and<sp/>compare</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>storedScaledLat,<sp/>storedScaledLon,<sp/>storedScaledAlt;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(&amp;storedScaledLat,<sp/>buffer<sp/>+<sp/>2,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(storedScaledLat));<sp/></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(&amp;storedScaledLon,<sp/>buffer<sp/>+<sp/>2<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(storedScaledLat),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(storedScaledLon));</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(&amp;storedScaledAlt,<sp/>buffer<sp/>+<sp/>2<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(storedScaledLat)<sp/>+<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(storedScaledLon),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(storedScaledAlt));</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_NOT_EQUAL(0,<sp/>result);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(PAYLOAD_ENCODER::DATA_TYPES::GPS_LOC),<sp/>buffer[0]);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sensorChannel,<sp/>buffer[1]);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT32(expectedLat,<sp/>storedScaledLat);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT32(expectedLon,<sp/>storedScaledLon);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_INT32(expectedAlt,<sp/>storedScaledAlt);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(PAYLOAD_ENCODER::getDataTypeSize(PAYLOAD_ENCODER::DATA_TYPES::GPS_LOC)<sp/>+<sp/>2,<sp/>lpp.getSize());</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_CayenneLPP_CopyAssignment(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;128&gt;</ref><sp/>source(128);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>sensorChannel<sp/>=<sp/>6;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>lat<sp/>=<sp/>51.5074f,<sp/>lon<sp/>=<sp/>-0.1278f,<sp/>alt<sp/>=<sp/>30.0f;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>source.addTemperature(1,<sp/>25.5);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>source.addGPSLocation(sensorChannel,<sp/>lat,<sp/>lon,<sp/>alt);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;128&gt;</ref><sp/>target(128);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>target<sp/>=<sp/>source;<sp/><sp/></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>sourceBuffer<sp/>=<sp/>source.getBuffer();</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>targetBuffer<sp/>=<sp/>target.getBuffer();</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(source.getSize(),<sp/>target.getSize());<sp/></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>source.getSize();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(sourceBuffer[i],<sp/>targetBuffer[i]);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_CopyToValidBuffer(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;128&gt;</ref><sp/>lpp(128);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>lpp.addTemperature(1,<sp/>25.5);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>destBuffer[128];</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>expectedBytes<sp/>=<sp/>lpp.getSize();</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>copiedBytes<sp/>=<sp/>lpp.copy(destBuffer);<sp/></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(expectedBytes,<sp/>copiedBytes);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>copiedBytes;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(lpp.getBuffer()[i],<sp/>destBuffer[i]);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>test_CopyToNullBuffer(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPAYLOAD__ENCODER_1_1CayenneLPP" kindref="compound">PAYLOAD_ENCODER::CayenneLPP&lt;128&gt;</ref><sp/>lpp(128);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>lpp.addHumidity(2,<sp/>75.0);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>copiedBytes<sp/>=<sp/>lpp.copy(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_UINT8(0,<sp/>copiedBytes);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Main<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/>UNITY_BEGIN();</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addDigitalInput);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addDigitalOutput);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addDigitalOutput_bool);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addAnalogInput);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addAnalogOutput);<sp/></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addIllumination);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addPresence);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addTemperature);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addHumidity);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addAccelerometer);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addBarometer);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addGyroscope);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_addGPSLocation);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_CayenneLPP_CopyAssignment);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_CopyToValidBuffer);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_CopyToNullBuffer);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>UNITY_END();</highlight></codeline>
+<codeline lineno="331"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="test/main_test.cpp"/>
+  </compounddef>
+</doxygen>
